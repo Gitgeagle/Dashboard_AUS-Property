@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T01:37:27.184025Z",
+ "generated_at": "2026-09-17T02:52:40.566292Z",
  "panels": [
   {
    "id": "rates",
@@ -22584,10 +22584,10 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "^N225",
-       "value": 64265.89,
+       "value": 63966.87,
        "unit": "JPY",
-       "change": 342.89,
-       "change_pct": 0.54,
+       "change": 43.87,
+       "change_pct": 0.07,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -23569,7 +23569,7 @@
         ],
         [
          "2026-09-17",
-         64265.8906
+         63966.8711
         ]
        ],
        "source": "Yahoo Finance",
@@ -23583,10 +23583,10 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "^HSI",
-       "value": 24480.57,
+       "value": 24464.43,
        "unit": "HKD",
-       "change": -233.2093,
-       "change_pct": -0.94,
+       "change": -249.3493,
+       "change_pct": -1.01,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -24569,6 +24569,10 @@
         [
          "2026-09-16",
          24713.7793
+        ],
+        [
+         "2026-09-17",
+         24464.4297
         ]
        ],
        "source": "Yahoo Finance",
@@ -24582,12 +24586,12 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "000001.SS",
-       "value": 3891.601,
+       "value": 3879.8533,
        "unit": "CNY",
-       "change": 27.3219,
-       "change_pct": 0.71,
-       "asof": "2026-09-16",
-       "age_days": 1,
+       "change": -11.7478,
+       "change_pct": -0.3,
+       "asof": "2026-09-17",
+       "age_days": 0,
        "spark": [
         [
          "2025-09-17",
@@ -25556,6 +25560,10 @@
         [
          "2026-09-16",
          3891.6011
+        ],
+        [
+         "2026-09-17",
+         3879.8533
         ]
        ],
        "source": "Yahoo Finance",
@@ -25569,10 +25577,10 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "^KS11",
-       "value": 6764.32,
+       "value": 6722.59,
        "unit": "KRW",
-       "change": 46.3498,
-       "change_pct": 0.69,
+       "change": 4.6198,
+       "change_pct": 0.07,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -26550,7 +26558,7 @@
         ],
         [
          "2026-09-17",
-         6764.3198
+         6722.5898
         ]
        ],
        "source": "Yahoo Finance",
@@ -27576,10 +27584,10 @@
        "panel": "equities",
        "group": "Australia",
        "symbol": "^AXJO",
-       "value": 8725.5,
+       "value": 8726.3,
        "unit": "AUD",
-       "change": 29.0,
-       "change_pct": 0.33,
+       "change": 29.8,
+       "change_pct": 0.34,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -28601,7 +28609,7 @@
         ],
         [
          "2026-09-17",
-         8725.5
+         8726.2998
         ]
        ],
        "source": "Yahoo Finance",
@@ -28615,10 +28623,10 @@
        "panel": "equities",
        "group": "Australia",
        "symbol": "^AORD",
-       "value": 8901.0,
+       "value": 8903.8,
        "unit": "AUD",
-       "change": 26.5,
-       "change_pct": 0.3,
+       "change": 29.3,
+       "change_pct": 0.33,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -29640,7 +29648,7 @@
         ],
         [
          "2026-09-17",
-         8901.0
+         8903.7998
         ]
        ],
        "source": "Yahoo Finance",
@@ -29667,10 +29675,10 @@
        "panel": "sector",
        "group": "Australian property",
        "symbol": "^AXPJ",
-       "value": 1503.2,
+       "value": 1506.8,
        "unit": "AUD",
-       "change": -1.8,
-       "change_pct": -0.12,
+       "change": 10.0,
+       "change_pct": 0.67,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -30687,8 +30695,12 @@
          1505.0
         ],
         [
+         "2026-09-16",
+         1496.8
+        ],
+        [
          "2026-09-17",
-         1503.2
+         1506.8
         ]
        ],
        "source": "Yahoo Finance",
@@ -30707,10 +30719,10 @@
        "panel": "sector",
        "group": "Australian inputs",
        "symbol": "^AXMJ",
-       "value": 23802.8,
+       "value": 23686.9,
        "unit": "AUD",
-       "change": 173.7004,
-       "change_pct": 0.74,
+       "change": -243.6,
+       "change_pct": -1.02,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -31727,8 +31739,12 @@
          23629.0996
         ],
         [
+         "2026-09-16",
+         23930.5
+        ],
+        [
          "2026-09-17",
-         23802.8008
+         23686.9004
         ]
        ],
        "source": "Yahoo Finance",
@@ -32786,6 +32802,1160 @@
        "note": null,
        "status": "ok",
        "stale_reason": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "capital_property",
+   "title": "Capital City Property",
+   "cadence": "quarterly",
+   "subtitle": "ABS median transfer prices by Greater Capital City. Quarterly - the headline is the year-on-year move, not the quarter.",
+   "groups": [
+    {
+     "name": "Median house price",
+     "tiles": [
+      {
+       "id": "city_house_1GSYD",
+       "label": "Sydney",
+       "panel": "capital_property",
+       "group": "Median house price",
+       "value": 1487600.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -4.03,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         1355000.0
+        ],
+        [
+         "2023-Q3",
+         1370000.0
+        ],
+        [
+         "2023-Q4",
+         1420000.0
+        ],
+        [
+         "2024-Q1",
+         1400000.0
+        ],
+        [
+         "2024-Q2",
+         1455000.0
+        ],
+        [
+         "2024-Q3",
+         1410000.0
+        ],
+        [
+         "2024-Q4",
+         1450000.0
+        ],
+        [
+         "2025-Q1",
+         1450000.0
+        ],
+        [
+         "2025-Q2",
+         1520000.0
+        ],
+        [
+         "2025-Q3",
+         1521500.0
+        ],
+        [
+         "2025-Q4",
+         1570000.0
+        ],
+        [
+         "2026-Q1",
+         1550000.0
+        ],
+        [
+         "2026-Q2",
+         1487600.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year -2.1%",
+       "status": "ok"
+      },
+      {
+       "id": "city_house_2GMEL",
+       "label": "Melbourne",
+       "panel": "capital_property",
+       "group": "Median house price",
+       "value": 850000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -2.86,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         840300.0
+        ],
+        [
+         "2023-Q3",
+         832000.0
+        ],
+        [
+         "2023-Q4",
+         865000.0
+        ],
+        [
+         "2024-Q1",
+         845000.0
+        ],
+        [
+         "2024-Q2",
+         842000.0
+        ],
+        [
+         "2024-Q3",
+         822300.0
+        ],
+        [
+         "2024-Q4",
+         850000.0
+        ],
+        [
+         "2025-Q1",
+         835000.0
+        ],
+        [
+         "2025-Q2",
+         840000.0
+        ],
+        [
+         "2025-Q3",
+         845000.0
+        ],
+        [
+         "2025-Q4",
+         895000.0
+        ],
+        [
+         "2026-Q1",
+         875000.0
+        ],
+        [
+         "2026-Q2",
+         850000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +1.2%",
+       "status": "ok"
+      },
+      {
+       "id": "city_house_3GBRI",
+       "label": "Brisbane",
+       "panel": "capital_property",
+       "group": "Median house price",
+       "value": 1155000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -0.43,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         775000.0
+        ],
+        [
+         "2023-Q3",
+         800000.0
+        ],
+        [
+         "2023-Q4",
+         830000.0
+        ],
+        [
+         "2024-Q1",
+         850000.0
+        ],
+        [
+         "2024-Q2",
+         890000.0
+        ],
+        [
+         "2024-Q3",
+         890000.0
+        ],
+        [
+         "2024-Q4",
+         935000.0
+        ],
+        [
+         "2025-Q1",
+         947700.0
+        ],
+        [
+         "2025-Q2",
+         972000.0
+        ],
+        [
+         "2025-Q3",
+         1025000.0
+        ],
+        [
+         "2025-Q4",
+         1102300.0
+        ],
+        [
+         "2026-Q1",
+         1160000.0
+        ],
+        [
+         "2026-Q2",
+         1155000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +18.8%",
+       "status": "ok"
+      },
+      {
+       "id": "city_house_5GPER",
+       "label": "Perth",
+       "panel": "capital_property",
+       "group": "Median house price",
+       "value": 1010000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": 0.5,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         600000.0
+        ],
+        [
+         "2023-Q3",
+         600000.0
+        ],
+        [
+         "2023-Q4",
+         660000.0
+        ],
+        [
+         "2024-Q1",
+         699500.0
+        ],
+        [
+         "2024-Q2",
+         755000.0
+        ],
+        [
+         "2024-Q3",
+         780000.0
+        ],
+        [
+         "2024-Q4",
+         820000.0
+        ],
+        [
+         "2025-Q1",
+         820000.0
+        ],
+        [
+         "2025-Q2",
+         850000.0
+        ],
+        [
+         "2025-Q3",
+         874000.0
+        ],
+        [
+         "2025-Q4",
+         960000.0
+        ],
+        [
+         "2026-Q1",
+         1005000.0
+        ],
+        [
+         "2026-Q2",
+         1010000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +18.8%",
+       "status": "ok"
+      },
+      {
+       "id": "city_house_4GADE",
+       "label": "Adelaide",
+       "panel": "capital_property",
+       "group": "Median house price",
+       "value": 975000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -1.02,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         702000.0
+        ],
+        [
+         "2023-Q3",
+         715000.0
+        ],
+        [
+         "2023-Q4",
+         750000.0
+        ],
+        [
+         "2024-Q1",
+         765000.0
+        ],
+        [
+         "2024-Q2",
+         785000.0
+        ],
+        [
+         "2024-Q3",
+         817500.0
+        ],
+        [
+         "2024-Q4",
+         850000.0
+        ],
+        [
+         "2025-Q1",
+         852000.0
+        ],
+        [
+         "2025-Q2",
+         861000.0
+        ],
+        [
+         "2025-Q3",
+         899000.0
+        ],
+        [
+         "2025-Q4",
+         955200.0
+        ],
+        [
+         "2026-Q1",
+         985000.0
+        ],
+        [
+         "2026-Q2",
+         975000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +13.2%",
+       "status": "ok"
+      },
+      {
+       "id": "city_house_8ACTE",
+       "label": "Canberra (ACT)",
+       "panel": "capital_property",
+       "group": "Median house price",
+       "value": 1030000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -4.63,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         983000.0
+        ],
+        [
+         "2023-Q3",
+         985000.0
+        ],
+        [
+         "2023-Q4",
+         1000000.0
+        ],
+        [
+         "2024-Q1",
+         980000.0
+        ],
+        [
+         "2024-Q2",
+         990000.0
+        ],
+        [
+         "2024-Q3",
+         998900.0
+        ],
+        [
+         "2024-Q4",
+         1000000.0
+        ],
+        [
+         "2025-Q1",
+         975000.0
+        ],
+        [
+         "2025-Q2",
+         1000000.0
+        ],
+        [
+         "2025-Q3",
+         1030000.0
+        ],
+        [
+         "2025-Q4",
+         1070000.0
+        ],
+        [
+         "2026-Q1",
+         1080000.0
+        ],
+        [
+         "2026-Q2",
+         1030000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +3.0%",
+       "status": "ok"
+      },
+      {
+       "id": "city_house_6GHOB",
+       "label": "Hobart",
+       "panel": "capital_property",
+       "group": "Median house price",
+       "value": 750000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": 0.0,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         696500.0
+        ],
+        [
+         "2023-Q3",
+         695000.0
+        ],
+        [
+         "2023-Q4",
+         715000.0
+        ],
+        [
+         "2024-Q1",
+         705000.0
+        ],
+        [
+         "2024-Q2",
+         690000.0
+        ],
+        [
+         "2024-Q3",
+         700000.0
+        ],
+        [
+         "2024-Q4",
+         715000.0
+        ],
+        [
+         "2025-Q1",
+         717000.0
+        ],
+        [
+         "2025-Q2",
+         715000.0
+        ],
+        [
+         "2025-Q3",
+         722500.0
+        ],
+        [
+         "2025-Q4",
+         750000.0
+        ],
+        [
+         "2026-Q1",
+         750000.0
+        ],
+        [
+         "2026-Q2",
+         750000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +4.9%",
+       "status": "ok"
+      },
+      {
+       "id": "city_house_7GDAR",
+       "label": "Darwin",
+       "panel": "capital_property",
+       "group": "Median house price",
+       "value": 752500.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": 0.33,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         590000.0
+        ],
+        [
+         "2023-Q3",
+         585000.0
+        ],
+        [
+         "2023-Q4",
+         589500.0
+        ],
+        [
+         "2024-Q1",
+         570000.0
+        ],
+        [
+         "2024-Q2",
+         582500.0
+        ],
+        [
+         "2024-Q3",
+         557500.0
+        ],
+        [
+         "2024-Q4",
+         560000.0
+        ],
+        [
+         "2025-Q1",
+         599800.0
+        ],
+        [
+         "2025-Q2",
+         620000.0
+        ],
+        [
+         "2025-Q3",
+         670000.0
+        ],
+        [
+         "2025-Q4",
+         710000.0
+        ],
+        [
+         "2026-Q1",
+         750000.0
+        ],
+        [
+         "2026-Q2",
+         752500.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +21.4%",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "name": "Median unit / apartment price",
+     "tiles": [
+      {
+       "id": "city_unit_1GSYD",
+       "label": "Sydney",
+       "panel": "capital_property",
+       "group": "Median unit / apartment price",
+       "value": 840000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -1.81,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         800000.0
+        ],
+        [
+         "2023-Q3",
+         795000.0
+        ],
+        [
+         "2023-Q4",
+         800000.0
+        ],
+        [
+         "2024-Q1",
+         790000.0
+        ],
+        [
+         "2024-Q2",
+         805000.0
+        ],
+        [
+         "2024-Q3",
+         815000.0
+        ],
+        [
+         "2024-Q4",
+         820000.0
+        ],
+        [
+         "2025-Q1",
+         820000.0
+        ],
+        [
+         "2025-Q2",
+         830000.0
+        ],
+        [
+         "2025-Q3",
+         845000.0
+        ],
+        [
+         "2025-Q4",
+         864900.0
+        ],
+        [
+         "2026-Q1",
+         855500.0
+        ],
+        [
+         "2026-Q2",
+         840000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +1.2%",
+       "status": "ok"
+      },
+      {
+       "id": "city_unit_2GMEL",
+       "label": "Melbourne",
+       "panel": "capital_property",
+       "group": "Median unit / apartment price",
+       "value": 590000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -0.14,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         620000.0
+        ],
+        [
+         "2023-Q3",
+         625000.0
+        ],
+        [
+         "2023-Q4",
+         635000.0
+        ],
+        [
+         "2024-Q1",
+         630000.0
+        ],
+        [
+         "2024-Q2",
+         630000.0
+        ],
+        [
+         "2024-Q3",
+         620000.0
+        ],
+        [
+         "2024-Q4",
+         627500.0
+        ],
+        [
+         "2025-Q1",
+         630000.0
+        ],
+        [
+         "2025-Q2",
+         603000.0
+        ],
+        [
+         "2025-Q3",
+         590000.0
+        ],
+        [
+         "2025-Q4",
+         650000.0
+        ],
+        [
+         "2026-Q1",
+         590800.0
+        ],
+        [
+         "2026-Q2",
+         590000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year -2.2%",
+       "status": "ok"
+      },
+      {
+       "id": "city_unit_3GBRI",
+       "label": "Brisbane",
+       "panel": "capital_property",
+       "group": "Median unit / apartment price",
+       "value": 830100.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -1.18,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         500000.0
+        ],
+        [
+         "2023-Q3",
+         525000.0
+        ],
+        [
+         "2023-Q4",
+         548000.0
+        ],
+        [
+         "2024-Q1",
+         580000.0
+        ],
+        [
+         "2024-Q2",
+         610000.0
+        ],
+        [
+         "2024-Q3",
+         630000.0
+        ],
+        [
+         "2024-Q4",
+         655000.0
+        ],
+        [
+         "2025-Q1",
+         685000.0
+        ],
+        [
+         "2025-Q2",
+         708000.0
+        ],
+        [
+         "2025-Q3",
+         745000.0
+        ],
+        [
+         "2025-Q4",
+         795000.0
+        ],
+        [
+         "2026-Q1",
+         840000.0
+        ],
+        [
+         "2026-Q2",
+         830100.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +17.2%",
+       "status": "ok"
+      },
+      {
+       "id": "city_unit_5GPER",
+       "label": "Perth",
+       "panel": "capital_property",
+       "group": "Median unit / apartment price",
+       "value": 730000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -1.35,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         410000.0
+        ],
+        [
+         "2023-Q3",
+         420000.0
+        ],
+        [
+         "2023-Q4",
+         447000.0
+        ],
+        [
+         "2024-Q1",
+         475500.0
+        ],
+        [
+         "2024-Q2",
+         510000.0
+        ],
+        [
+         "2024-Q3",
+         541000.0
+        ],
+        [
+         "2024-Q4",
+         559000.0
+        ],
+        [
+         "2025-Q1",
+         575000.0
+        ],
+        [
+         "2025-Q2",
+         600000.0
+        ],
+        [
+         "2025-Q3",
+         630000.0
+        ],
+        [
+         "2025-Q4",
+         700000.0
+        ],
+        [
+         "2026-Q1",
+         740000.0
+        ],
+        [
+         "2026-Q2",
+         730000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +21.7%",
+       "status": "ok"
+      },
+      {
+       "id": "city_unit_4GADE",
+       "label": "Adelaide",
+       "panel": "capital_property",
+       "group": "Median unit / apartment price",
+       "value": 725000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -2.29,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         525000.0
+        ],
+        [
+         "2023-Q3",
+         520000.0
+        ],
+        [
+         "2023-Q4",
+         565500.0
+        ],
+        [
+         "2024-Q1",
+         570000.0
+        ],
+        [
+         "2024-Q2",
+         630000.0
+        ],
+        [
+         "2024-Q3",
+         610000.0
+        ],
+        [
+         "2024-Q4",
+         640000.0
+        ],
+        [
+         "2025-Q1",
+         640000.0
+        ],
+        [
+         "2025-Q2",
+         660000.0
+        ],
+        [
+         "2025-Q3",
+         685300.0
+        ],
+        [
+         "2025-Q4",
+         735000.0
+        ],
+        [
+         "2026-Q1",
+         742000.0
+        ],
+        [
+         "2026-Q2",
+         725000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +9.8%",
+       "status": "ok"
+      },
+      {
+       "id": "city_unit_8ACTE",
+       "label": "Canberra (ACT)",
+       "panel": "capital_property",
+       "group": "Median unit / apartment price",
+       "value": 615000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -2.37,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         600000.0
+        ],
+        [
+         "2023-Q3",
+         619000.0
+        ],
+        [
+         "2023-Q4",
+         626000.0
+        ],
+        [
+         "2024-Q1",
+         605000.0
+        ],
+        [
+         "2024-Q2",
+         630000.0
+        ],
+        [
+         "2024-Q3",
+         600000.0
+        ],
+        [
+         "2024-Q4",
+         610000.0
+        ],
+        [
+         "2025-Q1",
+         600000.0
+        ],
+        [
+         "2025-Q2",
+         605000.0
+        ],
+        [
+         "2025-Q3",
+         618000.0
+        ],
+        [
+         "2025-Q4",
+         630000.0
+        ],
+        [
+         "2026-Q1",
+         629900.0
+        ],
+        [
+         "2026-Q2",
+         615000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +1.7%",
+       "status": "ok"
+      },
+      {
+       "id": "city_unit_6GHOB",
+       "label": "Hobart",
+       "panel": "capital_property",
+       "group": "Median unit / apartment price",
+       "value": 600000.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": -1.64,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         557000.0
+        ],
+        [
+         "2023-Q3",
+         550000.0
+        ],
+        [
+         "2023-Q4",
+         540000.0
+        ],
+        [
+         "2024-Q1",
+         551000.0
+        ],
+        [
+         "2024-Q2",
+         555000.0
+        ],
+        [
+         "2024-Q3",
+         525000.0
+        ],
+        [
+         "2024-Q4",
+         537500.0
+        ],
+        [
+         "2025-Q1",
+         550000.0
+        ],
+        [
+         "2025-Q2",
+         556300.0
+        ],
+        [
+         "2025-Q3",
+         580000.0
+        ],
+        [
+         "2025-Q4",
+         605000.0
+        ],
+        [
+         "2026-Q1",
+         610000.0
+        ],
+        [
+         "2026-Q2",
+         600000.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +7.9%",
+       "status": "ok"
+      },
+      {
+       "id": "city_unit_7GDAR",
+       "label": "Darwin",
+       "panel": "capital_property",
+       "group": "Median unit / apartment price",
+       "value": 445500.0,
+       "unit": "$",
+       "change": null,
+       "change_pct": 3.6,
+       "period": "2026-Q2",
+       "freq": "Q",
+       "asof": "2026-Q2",
+       "age_days": 81,
+       "spark": [
+        [
+         "2023-Q2",
+         387500.0
+        ],
+        [
+         "2023-Q3",
+         376000.0
+        ],
+        [
+         "2023-Q4",
+         375000.0
+        ],
+        [
+         "2024-Q1",
+         390000.0
+        ],
+        [
+         "2024-Q2",
+         356000.0
+        ],
+        [
+         "2024-Q3",
+         350000.0
+        ],
+        [
+         "2024-Q4",
+         341000.0
+        ],
+        [
+         "2025-Q1",
+         360000.0
+        ],
+        [
+         "2025-Q2",
+         380600.0
+        ],
+        [
+         "2025-Q3",
+         405000.0
+        ],
+        [
+         "2025-Q4",
+         432300.0
+        ],
+        [
+         "2026-Q1",
+         430000.0
+        ],
+        [
+         "2026-Q2",
+         445500.0
+        ]
+       ],
+       "source": "ABS Data API (RES_DWELL)",
+       "note": "Year on year +17.1%",
+       "status": "ok"
       }
      ]
     }
@@ -39153,10 +40323,10 @@
        "panel": "fx",
        "group": "Crypto",
        "symbol": "BTC-AUD",
-       "value": 107938.18,
+       "value": 107570.96,
        "unit": "AUD",
-       "change": 1823.055,
-       "change_pct": 1.72,
+       "change": 1455.835,
+       "change_pct": 1.37,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -40198,7 +41368,7 @@
         ],
         [
          "2026-09-17",
-         107938.1797
+         107570.9609
         ]
        ],
        "source": "Yahoo Finance",
@@ -40212,10 +41382,10 @@
        "panel": "fx",
        "group": "Crypto",
        "symbol": "ETH-AUD",
-       "value": 3441.385,
+       "value": 3421.522,
        "unit": "AUD",
-       "change": 74.4895,
-       "change_pct": 2.21,
+       "change": 54.6265,
+       "change_pct": 1.62,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -41257,7 +42427,7 @@
         ],
         [
          "2026-09-17",
-         3441.3848
+         3421.5222
         ]
        ],
        "source": "Yahoo Finance",
@@ -42311,10 +43481,10 @@
        "panel": "inputs",
        "group": "Construction inputs",
        "symbol": "HG=F",
-       "value": 6.486,
+       "value": 6.499,
        "unit": "USD",
-       "change": 0.1175,
-       "change_pct": 1.85,
+       "change": 0.1305,
+       "change_pct": 2.05,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -43324,7 +44494,7 @@
         ],
         [
          "2026-09-17",
-         6.486
+         6.499
         ]
        ],
        "source": "Yahoo Finance",
@@ -43338,10 +44508,10 @@
        "panel": "inputs",
        "group": "Construction inputs",
        "symbol": "ALI=F",
-       "value": 3415.25,
+       "value": 3416.75,
        "unit": "USD",
-       "change": 41.0,
-       "change_pct": 1.22,
+       "change": 42.5,
+       "change_pct": 1.26,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -44351,7 +45521,7 @@
         ],
         [
          "2026-09-17",
-         3415.25
+         3416.75
         ]
        ],
        "source": "Yahoo Finance",
@@ -44370,10 +45540,10 @@
        "panel": "inputs",
        "group": "Energy",
        "symbol": "BZ=F",
-       "value": 105.71,
+       "value": 105.44,
        "unit": "USD",
-       "change": -3.04,
-       "change_pct": -2.8,
+       "change": -3.31,
+       "change_pct": -3.04,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -45383,7 +46553,7 @@
         ],
         [
          "2026-09-17",
-         105.71
+         105.44
         ]
        ],
        "source": "Yahoo Finance",
@@ -46429,10 +47599,10 @@
        "panel": "inputs",
        "group": "Risk appetite",
        "symbol": "GC=F",
-       "value": 4346.5,
+       "value": 4326.8,
        "unit": "USD",
-       "change": 13.7002,
-       "change_pct": 0.32,
+       "change": -5.9998,
+       "change_pct": -0.14,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -47442,7 +48612,7 @@
         ],
         [
          "2026-09-17",
-         4346.5
+         4326.7998
         ]
        ],
        "source": "Yahoo Finance",
@@ -48491,10 +49661,10 @@
        "panel": "inputs",
        "group": "Risk appetite",
        "symbol": "DX-Y.NYB",
-       "value": 100.303,
+       "value": 100.34,
        "unit": "USD",
-       "change": -0.007,
-       "change_pct": -0.01,
+       "change": 0.03,
+       "change_pct": 0.03,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -49508,7 +50678,7 @@
         ],
         [
          "2026-09-17",
-         100.303
+         100.34
         ]
        ],
        "source": "Yahoo Finance",
@@ -50629,8 +51799,8 @@
  ],
  "errors": {},
  "counts": {
-  "total": 60,
-  "ok": 60,
+  "total": 76,
+  "ok": 76,
   "degraded": 0,
   "errors": 0
  },
