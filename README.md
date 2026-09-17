@@ -16,6 +16,7 @@ database, no paid feeds, no accounts beyond an optional free FRED key.
 | Yield Curve Shape | daily | AU and US curves with 1-month and 1-year ghost overlays, spreads, shape classifier |
 | Global Equities | end of day | 16 indices ordered by trading session — Americas, Europe, Asia, then our open |
 | Property & Input Sectors | end of day | ASX 200 A-REIT, ASX 200 Materials, DJ US Real Estate, VNQ |
+| Capital City Property | quarterly | ABS median house and unit prices for all 8 capitals, QoQ and YoY |
 | FX & Crypto | daily | AUD crosses and TWI (RBA 4pm fixes), BTC/ETH in AUD |
 | Inputs & Commodities | end of day | HRC steel, copper, aluminium, Brent, WTI, gold, VIX, DXY |
 | Structural / Construction | quarterly & monthly | ABS construction PPIs, work done, dwelling commencements, CPI, WPI, mean dwelling price |
@@ -45,7 +46,7 @@ All free. All either official or public.
 |---|---|---|
 | [RBA statistical tables](https://www.rba.gov.au/statistics/tables/) (F1, F2, F5, F6, F11.1) | no | Cash rate, AU bonds, bank bills, lending rates, FX |
 | [US Treasury par yield curve](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve) | no | Full US curve, 13 tenors, 1M–30Y |
-| [ABS Data API](https://www.abs.gov.au/about/data-services/application-programming-interfaces-apis/data-api-user-guide) (SDMX-JSON) | no | Construction PPIs, work done, commencements, CPI, WPI, dwelling prices |
+| [ABS Data API](https://www.abs.gov.au/about/data-services/application-programming-interfaces-apis/data-api-user-guide) (SDMX-JSON) | no | Construction PPIs, work done, commencements, CPI, WPI, dwelling prices, capital city medians |
 | Yahoo Finance chart endpoint | no | Equities, commodity futures, crypto |
 | Coinbase / Kraken public APIs | no | Crypto fallback |
 | [FRED](https://fred.stlouisfed.org/docs/api/fred/) | free key, optional | US Fed funds, US CPI |
@@ -61,6 +62,12 @@ Notes on sources that did **not** work, recorded so nobody retries them:
   `RES_DWELL_ST` and `CPI` are the live replacements.
 - **`TIO=F`** (SGX iron ore) last traded in 2021 and **`LBS=F`** (lumber) in 2023, but
   Yahoo still serves both with HTTP 200 and a stale price. They are excluded.
+- **Domain** is not used. Their developer API publishes no free tier (OAuth, contract
+  pricing, industry-oriented), and `domain.com.au` blocks automated requests at the edge
+  — even `robots.txt` returns an Akamai *Access Denied*. Separately, republishing their
+  proprietary stratified-median index from a public repo is a copyright/terms question
+  for a lawyer, not one to infer. ABS `RES_DWELL` is the free official substitute and
+  carries all eight capitals.
 
 ## Staleness guards
 

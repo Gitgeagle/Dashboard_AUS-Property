@@ -93,6 +93,9 @@ PANELS = [
      "subtitle": "Read backwards through last night - Americas, Europe, Asia, then our open"},
     {"id": "sector", "title": "Property & Input Sectors", "cadence": "end of day",
      "subtitle": "The indices closest to your actual business"},
+    {"id": "capital_property", "title": "Capital City Property", "cadence": "quarterly",
+     "subtitle": ("ABS median transfer prices by Greater Capital City. Quarterly - the "
+                  "headline is the year-on-year move, not the quarter.")},
     {"id": "fx", "title": "FX & Crypto", "cadence": "daily",
      "subtitle": "RBA 4pm fixes, plus crypto as a risk-appetite gauge"},
     {"id": "inputs", "title": "Inputs & Commodities", "cadence": "end of day",
@@ -101,6 +104,13 @@ PANELS = [
      "subtitle": ("ABS series. These move on release dates, not overnight - read the "
                   "reference period, not the refresh time.")},
 ]
+
+
+# Fixed display order, roughly by market size. Stable ordering matters on a dashboard
+# read at a glance - tiles that reshuffle by value each quarter are harder to scan.
+CAPITAL_ORDER = ["1GSYD", "2GMEL", "3GBRI", "5GPER", "4GADE", "8ACTE", "6GHOB", "7GDAR"]
+
+CITY_GROUPS = {"house": "Median house price", "unit": "Median unit / apartment price"}
 
 
 # ------------------------------------------------------------------------- utilities
@@ -112,6 +122,16 @@ def pct_change(obs):
     if not prev:
         return None, None
     return round(cur - prev, 4), round((cur / prev - 1) * 100, 2)
+
+
+def yoy_change(obs, periods_back=4):
+    """Year-on-year percent change for a quarterly series."""
+    if len(obs) <= periods_back:
+        return None
+    prev = obs[-1 - periods_back][1]
+    if not prev:
+        return None
+    return round((obs[-1][1] / prev - 1) * 100, 1)
 
 
 def age_days(iso):

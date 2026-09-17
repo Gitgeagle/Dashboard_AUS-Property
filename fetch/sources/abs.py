@@ -134,6 +134,74 @@ def fetch_series(spec, n=12):
     return _extract(js)
 
 
+# ---------------------------------------------------------- capital city property
+# RES_DWELL: MEASURE.REGION.FREQ, quarterly medians by Greater Capital City Statistical
+# Area. This is the free official substitute for a commercial city price index - Domain's
+# API has no published free tier and domain.com.au blocks automated requests outright.
+CITY_FLOW = "RES_DWELL"
+CITY_MEASURES = {"3": "house", "4": "unit"}
+CAPITALS = {
+    "1GSYD": "Sydney", "2GMEL": "Melbourne", "3GBRI": "Brisbane",
+    "4GADE": "Adelaide", "5GPER": "Perth", "6GHOB": "Hobart",
+    "7GDAR": "Darwin", "8ACTE": "Canberra (ACT)",
+}
+
+
+def fetch_city_property(n=13):
+    """Median dwelling prices for the eight capitals.
+
+    Returns {(region_id, kind): {"city":..., "kind":..., "obs":[(period, value)]}}.
+    One request covers both measures and every region; n=13 gives four years of
+    quarters so year-on-year is available alongside quarter-on-quarter.
+    """
+    key = "+".join(CITY_MEASURES) + "..Q"
+    js = get_json(BASE.format(flow=CITY_FLOW, key=key, n=n))
+    data = js.get("data") or {}
+    datasets, structures = data.get("dataSets") or [], data.get("structures") or []
+    if not datasets or not structures:
+        raise ValueError("no dataSets/structures in RES_DWELL response")
+
+    dims = structures[0].get("dimensions") or {}
+    periods = [v.get("id") for v in (dims.get("observation") or [{}])[0].get("values", [])]
+    series_dims = dims.get("series") or []
+    dim_values = {d["id"]: d.get("values", []) for d in series_dims}
+    dim_order = [d["id"] for d in series_dims]
+
+    # UNIT_MULT is "Thousands" here - a raw 1488 is $1.488m, not $1,488.
+    attr_defs = (structures[0].get("attributes") or {}).get("series") or []
+
+    out = {}
+    for skey, sval in (datasets[0].get("series") or {}).items():
+        idx = [int(i) for i in skey.split(":")]
+        coords = {dim_order[i]: dim_values[dim_order[i]][idx[i]]["id"] for i in range(len(idx))}
+        region, measure = coords.get("REGION"), coords.get("MEASURE")
+        if region not in CAPITALS or measure not in CITY_MEASURES:
+            continue
+
+        mult = 1
+        attr_idx = sval.get("attributes") or []
+        for pos, adef in enumerate(attr_defs):
+            if adef.get("id") != "UNIT_MULT" or pos >= len(attr_idx) or attr_idx[pos] is None:
+                continue
+            vals = adef.get("values") or []
+            if attr_idx[pos] < len(vals):
+                nm = (vals[attr_idx[pos]].get("name") or "").strip().lower()
+                mult = UNIT_MULTS.get(nm, 1)
+
+        obs = []
+        for k, v in (sval.get("observations") or {}).items():
+            i = int(k)
+            if i < len(periods) and v and v[0] is not None:
+                obs.append((periods[i], float(v[0]) * mult))
+        obs.sort(key=lambda t: t[0])
+        if obs:
+            out[(region, CITY_MEASURES[measure])] = {
+                "city": CAPITALS[region], "kind": CITY_MEASURES[measure],
+                "region": region, "obs": obs,
+            }
+    return out
+
+
 def _period_age_days(period):
     """Rough age of an ABS period label like '2026-Q2' or '2026-08'."""
     from datetime import date
@@ -148,6 +216,9 @@ def _period_age_days(period):
     except Exception:  # noqa: BLE001
         return None
     return (date.today() - ref).days
+
+
+period_age_days = _period_age_days  # public alias for callers outside this module
 
 
 # A series far past its normal publication lag is probably discontinued rather than

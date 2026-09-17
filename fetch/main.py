@@ -220,6 +220,37 @@ def build():
             "stale_reason": s.get("stale_reason"),
         })
 
+    # ------------------------------------------------- capital city property
+    log("Fetching ABS capital city property prices...")
+    try:
+        city = abs_src.fetch_city_property()
+        log(f"  {len(city)} series across {len(tiles.CAPITAL_ORDER)} capitals")
+    except Exception as e:  # noqa: BLE001
+        city = {}
+        errors["abs/city_property"] = f"{type(e).__name__}: {e}"
+
+    for kind in ("house", "unit"):
+        for region in tiles.CAPITAL_ORDER:
+            rec = city.get((region, kind))
+            if not rec:
+                continue
+            obs = rec["obs"]
+            period, value = obs[-1]
+            _chg, qoq = tiles.pct_change(obs)
+            yoy = tiles.yoy_change(obs)
+            note = f"Year on year {yoy:+.1f}%" if yoy is not None else None
+            tile_list.append({
+                "id": f"city_{kind}_{region}", "label": rec["city"],
+                "panel": "capital_property", "group": tiles.CITY_GROUPS[kind],
+                "value": value, "unit": "$",
+                "change": None, "change_pct": qoq,
+                "period": period, "freq": "Q",
+                "asof": period, "age_days": abs_src.period_age_days(period),
+                "spark": [[p, v] for p, v in obs],
+                "source": "ABS Data API (RES_DWELL)",
+                "note": note, "status": "ok",
+            })
+
     # ---------------------------------------------------------------- FRED
     log("Fetching FRED series...")
     fred_data, fred_errors, fred_skipped = fred.fetch_all()
