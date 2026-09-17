@@ -208,6 +208,12 @@ def build():
         # For series already expressed as a percentage, a percent-change-of-a-percent is
         # meaningless - report the move in percentage points instead.
         is_pct = s.get("unit") == "%"
+        # For quarterly structural series the annual move is the signal and the quarter is
+        # largely noise, so year-on-year rides on the tile alongside the period change.
+        note = s.get("note")
+        yoy = tiles.yoy_change(obs) if s.get("freq") == "Q" else None
+        if yoy is not None and not is_pct:
+            note = f"Year on year {yoy:+.1f}%" + (f" · {note}" if note else "")
         tile_list.append({
             "id": sid, "label": s["label"], "panel": "structural",
             "group": "ABS", "value": value, "unit": s.get("unit"),
@@ -215,7 +221,7 @@ def build():
             "period": period, "freq": s.get("freq"),
             "asof": period, "age_days": s.get("age_days"),
             "spark": [[p, v] for p, v in obs],
-            "source": "ABS Data API", "note": s.get("note"),
+            "source": "ABS Data API", "note": note,
             "status": "stale" if s.get("stale") else "ok",
             "stale_reason": s.get("stale_reason"),
         })

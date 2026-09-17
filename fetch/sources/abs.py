@@ -61,6 +61,14 @@ SERIES = {
         "label": "CPI (monthly indicator, annual)", "unit": "%",
         "note": "All groups CPI, change from corresponding month of previous year",
     },
+    # The ABS publishes no rent series broken down by capital city - both "Rents" codes
+    # exist only for REGION=50 (Australia) - and no annual-change measure, so we take the
+    # index and compute year-on-year ourselves.
+    "cpi_rents": {
+        "flow": "CPI", "key": "1.30014.10.50.Q",
+        "label": "Rents (CPI index)", "unit": "index",
+        "note": "ABS CPI Rents, Australia. National only - no capital city breakdown exists.",
+    },
     "wpi_construction": {
         "flow": "WPI", "key": "3.THRPEB.7.E.10.AUS.Q",
         "label": "Wage price index - construction", "unit": "%",

@@ -19,7 +19,7 @@ database, no paid feeds, no accounts beyond an optional free FRED key.
 | Capital City Property | quarterly | ABS median house and unit prices for all 8 capitals, QoQ and YoY |
 | FX & Crypto | daily | AUD crosses and TWI (RBA 4pm fixes), BTC/ETH in AUD |
 | Inputs & Commodities | end of day | HRC steel, copper, aluminium, Brent, WTI, gold, VIX, DXY |
-| Structural / Construction | quarterly & monthly | ABS construction PPIs, work done, dwelling commencements, CPI, WPI, mean dwelling price |
+| Structural / Construction | quarterly & monthly | ABS construction PPIs, work done, dwelling commencements, CPI, CPI Rents, WPI, mean dwelling price |
 
 ## Reading it honestly
 
@@ -68,6 +68,40 @@ Notes on sources that did **not** work, recorded so nobody retries them:
   proprietary stratified-median index from a public repo is a copyright/terms question
   for a lawyer, not one to infer. ABS `RES_DWELL` is the free official substitute and
   carries all eight capitals.
+
+## Rental yields: why there is no city-level yield panel
+
+A gross yield needs median rent over median price. Prices are solved — ABS `RES_DWELL`
+gives all eight capitals. **Rents are not**, and the gap is in the data, not the code:
+
+- The ABS publishes no rent series by capital city. Both CPI "Rents" codes (`30014`,
+  `115522`) exist only for `REGION=50` (Australia), and neither offers an annual-change
+  measure. National CPI Rents is carried in the structural panel with year-on-year
+  computed from the index.
+- Australian rent levels come from **state bond authorities**, and they are not usable
+  as one series: Victoria's Rental Report is on data.gov.au but the latest quarter
+  published is ~12 months behind; NSW offers only "website link" and PDF resources, last
+  touched in 2022–23; Queensland's RTA medians are not on the state open-data portal at
+  all. They also report by LGA rather than Greater Capital City, on differing definitions.
+- Computing Sydney and Melbourne yields off different bases and different vintages would
+  be worse than showing nothing, because the comparison between them is the whole point.
+
+Current city-level yields are a commercial product (Cotality, SQM Research, Domain,
+PropTrack). Until one is licensed, the A-REIT tile is the daily read on where the market
+is pricing yield.
+
+## Stratified price indexes
+
+The ABS used to publish exactly this — `6416.0 Residential Property Price Indexes: Eight
+Capital Cities`, stratified, split into House and Attached Dwellings. **It ceased with
+the December quarter 2021 issue** and was folded into *Total Value of Dwellings*, which
+carries mean price rather than a stratified index. The `RPPI` dataflow is still in the
+API and still returns data, which is a trap — it stops at 2021-Q4.
+
+So there is no free stratified or hedonic Australian price index post-2021. What this
+dashboard uses, `RES_DWELL`, is an **unstratified** median: a straight median of actual
+transfers, so it is noisier quarter to quarter and moves with whatever happened to sell.
+That is why every city tile leads with year-on-year rather than the quarterly move.
 
 ## Staleness guards
 
