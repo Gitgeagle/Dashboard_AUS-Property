@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Markets</title>
+<meta name="description" content="Daily markets dashboard for property development and construction.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1>Morning Markets</h1>
+    <span class="tag" id="localtime"></span>
+  </div>
+  <div class="meta">
+    <span id="generated">loading…</span>
+    <span class="dot">·</span>
+    <span id="health"></span>
+    <button id="refresh" title="Re-read the published data file">refresh</button>
+  </div>
+</header>
+
+<main id="app">
+  <div class="loading">Loading market data…</div>
+</main>
+
+<footer>
+  <p id="sources"></p>
+  <p class="fineprint">
+    End-of-day and previous-close data from free official and public sources. Not real
+    time, and not investment advice. Every tile shows the date its number refers to —
+    read that, not the refresh time.
+  </p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
