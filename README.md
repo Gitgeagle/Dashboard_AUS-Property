@@ -159,6 +159,17 @@ RBA, ABS and Treasury sources are unaffected. If Yahoo tiles come back empty fro
 work locally, run the fetcher on Windows Task Scheduler instead and let it push — the
 code is identical, only the trigger changes.
 
+## A note on merge conflicts
+
+`data/latest.json` is regenerated in full on every run, and CI refreshes it on a cron
+while you may be rebuilding it locally from new code. `.gitattributes` marks it
+`merge=ours` so rebases stop trying to hand-merge a 780KB generated blob. Enable the
+driver once per clone:
+
+```bash
+git config merge.ours.driver true
+```
+
 ## Layout
 
 ```

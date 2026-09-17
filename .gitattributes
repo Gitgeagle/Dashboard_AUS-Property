@@ -1,0 +1,5 @@
+# data/latest.json is regenerated in full by fetch/main.py on every run, so a merge
+# conflict in it carries no information - CI refreshes it on a cron while local edits
+# rebuild it from new code. Keep the current branch's copy and let the next fetch
+# produce the authoritative version, instead of hand-resolving a 780KB generated blob.
+data/latest.json merge=ours linguist-generated=true
