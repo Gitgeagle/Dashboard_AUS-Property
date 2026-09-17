@@ -87,8 +87,14 @@ gives all eight capitals. **Rents are not**, and the gap is in the data, not the
   be worse than showing nothing, because the comparison between them is the whole point.
 
 Current city-level yields are a commercial product (Cotality, SQM Research, Domain,
-PropTrack). Until one is licensed, the A-REIT tile is the daily read on where the market
-is pricing yield.
+PropTrack).
+
+**Decision (Sep 2026): stay on free sources.** The A-REIT tile is the daily read on where
+the market prices yield. Licensing a commercial feed would also collide with this repo
+being public — most such licences prohibit redistribution, so publishing the data to a
+public Pages site would likely breach the terms. Revisit only if a specific decision
+actually turns on a stratified or yield number, and get the licence terms checked before
+any licensed data enters the repo.
 
 ## Stratified price indexes
 
