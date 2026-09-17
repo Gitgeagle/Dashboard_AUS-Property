@@ -13,6 +13,14 @@ from httpget import get_text
 URL = ("https://home.treasury.gov/resource-center/data-chart-center/interest-rates/"
        "pages/xml?data=daily_treasury_yield_curve&field_tdr_date_value={year}")
 
+# Same feed, real (TIPS) yields. Nominal minus real gives the market-implied inflation
+# breakeven - a daily read on expectations, free and keyless.
+REAL_URL = ("https://home.treasury.gov/resource-center/data-chart-center/interest-rates/"
+            "pages/xml?data=daily_treasury_real_yield_curve&field_tdr_date_value={year}")
+
+REAL_TENORS = [("TC_5YEAR", 5, "5Y"), ("TC_7YEAR", 7, "7Y"), ("TC_10YEAR", 10, "10Y"),
+               ("TC_20YEAR", 20, "20Y"), ("TC_30YEAR", 30, "30Y")]
+
 NS = {"d": "http://schemas.microsoft.com/ado/2007/08/dataservices"}
 
 # Field name -> years to maturity. Drives the curve x-axis.
@@ -54,6 +62,45 @@ def fetch_curve(year=None):
             days.append({"date": day, "points": pts})
     days.sort(key=lambda d: d["date"])
     return days
+
+
+def fetch_real_curve(year=None):
+    """Real (TIPS) par yields. Same shape as fetch_curve."""
+    year = year or date.today().year
+    root = ET.fromstring(get_text(REAL_URL.format(year=year)))
+    days = []
+    for entry in root.iter("{http://www.w3.org/2005/Atom}entry"):
+        props = entry.find(".//{http://schemas.microsoft.com/ado/2007/08/dataservices/metadata}properties")
+        if props is None:
+            continue
+        dt_el = props.find("d:NEW_DATE", NS)
+        if dt_el is None or not dt_el.text:
+            continue
+        pts = []
+        for field, yrs, label in REAL_TENORS:
+            el = props.find(f"d:{field}", NS)
+            if el is None or not el.text:
+                continue
+            try:
+                pts.append({"tenor": label, "years": yrs, "yield": float(el.text)})
+            except ValueError:
+                continue
+        if pts:
+            days.append({"date": dt_el.text[:10], "points": pts})
+    days.sort(key=lambda d: d["date"])
+    return days
+
+
+def fetch_real(years_back=0):
+    this_year = date.today().year
+    out = []
+    for y in range(this_year - years_back, this_year + 1):
+        try:
+            out.extend(fetch_real_curve(y))
+        except Exception:  # noqa: BLE001
+            continue
+    out.sort(key=lambda d: d["date"])
+    return out
 
 
 def fetch(years_back=1):

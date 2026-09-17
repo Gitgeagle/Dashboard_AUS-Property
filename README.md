@@ -18,8 +18,10 @@ database, no paid feeds, no accounts beyond an optional free FRED key.
 | Property & Input Sectors | end of day | ASX 200 A-REIT, ASX 200 Materials, DJ US Real Estate, VNQ |
 | Capital City Property | quarterly | ABS median house and unit prices for all 8 capitals, QoQ and YoY |
 | FX & Crypto | daily | AUD crosses and TWI (RBA 4pm fixes), BTC/ETH in AUD |
-| Inputs & Commodities | end of day | HRC steel, copper, aluminium, Brent, WTI, gold, VIX, DXY |
-| Structural / Construction | quarterly & monthly | ABS construction PPIs, work done, dwelling commencements, CPI, CPI Rents, WPI, mean dwelling price |
+| Inputs & Commodities | end of day | Steel (HRC + producers), copper, aluminium; Brent, WTI, **diesel**, US & EU gas; freight & shipping; gold, VIX, DXY |
+| Thematic & Cycle | end of day | Housing/infrastructure, materials & energy sectors, energy-transition themes |
+| Inflation | mixed | Headline, trimmed mean and weighted median CPI, CPI rents, plus **daily AU and US breakevens** |
+| Structural / Construction | quarterly | ABS construction PPIs, work done, dwelling commencements, WPI, mean dwelling price |
 
 ## Reading it honestly
 
@@ -68,6 +70,39 @@ Notes on sources that did **not** work, recorded so nobody retries them:
   proprietary stratified-median index from a public repo is a copyright/terms question
   for a lawyer, not one to infer. ABS `RES_DWELL` is the free official substitute and
   carries all eight capitals.
+
+## Inflation expectations come free
+
+The most useful inflation tiles here are *daily*, not quarterly, and cost nothing extra
+because both sit in feeds already being fetched:
+
+- **AU 10-year breakeven** — the RBA publishes a 10-year indexed (inflation-linked) bond
+  yield in table F2 alongside the nominal. The difference is the market's 10-year
+  inflation expectation.
+- **US 5/10/30-year breakevens** — Treasury serves a real (TIPS) par yield curve from the
+  same XML feed as the nominal one, just `data=daily_treasury_real_yield_curve`. Nominal
+  less real gives the breakeven.
+
+The ABS underlying measures the RBA actually targets — trimmed mean and weighted median
+— live in the `CPI_Q` dataflow (seasonally adjusted), not `CPI`, and are published only
+as an index, so the annual change is computed here. Their sparklines plot the annual rate
+rather than the index; charting the index would draw a rising line beneath a falling rate.
+
+## Freight and shipping: no free container index
+
+Container freight indices are proprietary. Drewry's World Container Index is published
+weekly on their site and their `robots.txt` does permit crawling, but it remains a
+commercial index and republishing it from a public repo is the same redistribution
+problem as any other licensed feed. The Freightos Baltic Index sits behind Cloudflare
+redirects. The Baltic Dry Index (`^BDIY`) is not on Yahoo.
+
+The dashboard uses free market proxies instead, which are arguably better for reading
+direction anyway:
+
+- **BDRY** — dry bulk freight futures: the cost of moving iron ore, coal, cement and
+  aggregates.
+- **Maersk, ZIM, BOAT** — container liner equities. ZIM is close to a pure-play spot
+  carrier, so it tracks container rates fairly directly.
 
 ## Rental yields: why there is no city-level yield panel
 

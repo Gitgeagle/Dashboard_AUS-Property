@@ -58,7 +58,7 @@ SERIES = {
     # series under the same key, so we read it from there.
     "cpi_monthly": {
         "flow": "CPI", "key": "3.10001.10.50.M",
-        "label": "CPI (monthly indicator, annual)", "unit": "%",
+        "label": "Headline CPI (monthly)", "unit": "%", "panel": "inflation",
         "note": "All groups CPI, change from corresponding month of previous year",
     },
     # The ABS publishes no rent series broken down by capital city - both "Rents" codes
@@ -66,8 +66,21 @@ SERIES = {
     # index and compute year-on-year ourselves.
     "cpi_rents": {
         "flow": "CPI", "key": "1.30014.10.50.Q",
-        "label": "Rents (CPI index)", "unit": "index",
+        "label": "Rents (CPI)", "unit": "%", "panel": "inflation", "display": "yoy",
         "note": "ABS CPI Rents, Australia. National only - no capital city breakdown exists.",
+    },
+    # The RBA targets underlying inflation, not the headline, so the trimmed mean is the
+    # number that actually moves the cash rate. Both live in CPI_Q (seasonally adjusted)
+    # rather than the CPI flow, and only as an index - the annual change is computed here.
+    "cpi_trimmed_mean": {
+        "flow": "CPI_Q", "key": "1.999902..50.Q",
+        "label": "Trimmed mean CPI", "unit": "%", "panel": "inflation", "display": "yoy",
+        "note": "The RBA's preferred underlying measure - this is what moves the cash rate.",
+    },
+    "cpi_weighted_median": {
+        "flow": "CPI_Q", "key": "1.999903..50.Q",
+        "label": "Weighted median CPI", "unit": "%", "panel": "inflation", "display": "yoy",
+        "note": "Second underlying measure; cross-checks the trimmed mean.",
     },
     "wpi_construction": {
         "flow": "WPI", "key": "3.THRPEB.7.E.10.AUS.Q",
@@ -236,7 +249,7 @@ period_age_days = _period_age_days  # public alias for callers outside this modu
 STALE_AFTER_DAYS = {"Q": 300, "M": 120}
 
 
-def fetch_all(n=12):
+def fetch_all(n=20):
     out, errors = {}, {}
     for sid, spec in SERIES.items():
         try:

@@ -39,15 +39,42 @@ YAHOO = [
     ("btc", "BTC-AUD", "Bitcoin", "fx", "Crypto"),
     ("eth", "ETH-AUD", "Ether", "fx", "Crypto"),
 
-    # Panel 5 - inputs and commodities
+    # Panel 3 (cont.) - Australian building materials names
+    ("jhx", "JHX.AX", "James Hardie", "sector", "Australian inputs"),
+    ("rwc", "RWC.AX", "Reliance Worldwide", "sector", "Australian inputs"),
+    ("bxb", "BXB.AX", "Brambles", "sector", "Australian inputs"),
+
+    # Panel 6 - inputs and commodities
     ("hrc_steel", "HRC=F", "HRC steel futures", "inputs", "Construction inputs"),
     ("copper", "HG=F", "Copper futures", "inputs", "Construction inputs"),
     ("aluminium", "ALI=F", "Aluminium futures", "inputs", "Construction inputs"),
+    ("steel_producers", "SLX", "Global steel producers", "inputs", "Construction inputs"),
     ("brent", "BZ=F", "Brent crude", "inputs", "Energy"),
     ("wti", "CL=F", "WTI crude", "inputs", "Energy"),
+    ("diesel", "HO=F", "Diesel (ULSD)", "inputs", "Energy"),
+    ("natgas", "NG=F", "US natural gas", "inputs", "Energy"),
+    ("ttf_gas", "TTF=F", "European gas (TTF)", "inputs", "Energy"),
+    ("dry_bulk", "BDRY", "Dry bulk freight", "inputs", "Freight & shipping"),
+    ("maersk", "MAERSK-B.CO", "A.P. Moller-Maersk", "inputs", "Freight & shipping"),
+    ("zim", "ZIM", "ZIM Integrated Shipping", "inputs", "Freight & shipping"),
+    ("shipping_etf", "BOAT", "Global shipping ETF", "inputs", "Freight & shipping"),
     ("gold", "GC=F", "Gold", "inputs", "Risk appetite"),
     ("vix", "^VIX", "VIX", "inputs", "Risk appetite"),
     ("dxy", "DX-Y.NYB", "US dollar index", "inputs", "Risk appetite"),
+
+    # Panel 7 - thematic, for reading the cycle rather than pricing a job
+    ("itb", "ITB", "US home construction", "thematic", "Housing & construction cycle"),
+    ("xhb", "XHB", "US homebuilders", "thematic", "Housing & construction cycle"),
+    ("pave", "PAVE", "US infrastructure", "thematic", "Housing & construction cycle"),
+    ("igf", "IGF", "Global infrastructure", "thematic", "Housing & construction cycle"),
+    ("xlb", "XLB", "Materials sector", "thematic", "Materials & energy"),
+    ("xle", "XLE", "Energy sector", "thematic", "Materials & energy"),
+    ("xlre", "XLRE", "Real estate sector", "thematic", "Materials & energy"),
+    ("copx", "COPX", "Copper miners", "thematic", "Materials & energy"),
+    ("ura", "URA", "Uranium", "thematic", "Energy transition"),
+    ("lit", "LIT", "Lithium & battery", "thematic", "Energy transition"),
+    ("icln", "ICLN", "Clean energy", "thematic", "Energy transition"),
+    ("remx", "REMX", "Rare earth & strategic metals", "thematic", "Energy transition"),
 ]
 
 # Caveats that belong on the tile, not in a README nobody opens.
@@ -63,6 +90,22 @@ NOTES = {
     "btc": "Carried as a risk-appetite gauge alongside VIX, not an asset class you hold.",
     "eth": "Carried as a risk-appetite gauge alongside VIX, not an asset class you hold.",
     "cash_rate": "The rate everything else is priced off.",
+    "diesel": ("NY Harbor ULSD, USD per gallon - the global diesel benchmark. Plant, "
+               "haulage and generators all price off this."),
+    "ttf_gas": "European gas benchmark. Sets the marginal energy cost for cement, glass and brick.",
+    "steel_producers": "Global steel producer equities - the margin side of the steel price.",
+    "dry_bulk": ("Dry bulk freight futures. This is the cost of shipping iron ore, coal, "
+                 "cement and aggregates - the bulk side of your input chain."),
+    "maersk": ("Container liner bellwether. Carried because the actual container indices "
+               "(Drewry WCI, Freightos FBX) are proprietary and not freely redistributable - "
+               "liner equities are the free daily read on container rates."),
+    "zim": "Near pure-play spot container carrier, so it tracks container freight rates closely.",
+    "itb": "US housing cycle tends to lead the Australian one. Watch for turns, not levels.",
+    "pave": "US infrastructure spend - a read on global demand for cement, steel and aggregates.",
+    "igf": "Global listed infrastructure - long-duration assets, so highly rate-sensitive.",
+    "copx": "Copper miners. Copper leads the industrial cycle more reliably than most indicators.",
+    "jhx": "Building products, heavily exposed to US housing as well as Australian.",
+    "bxb": "Pallets and supply chain - a proxy for goods movement volumes.",
 }
 
 # ------------------------------------------------------------------ RBA-backed tiles
@@ -99,7 +142,13 @@ PANELS = [
     {"id": "fx", "title": "FX & Crypto", "cadence": "daily",
      "subtitle": "RBA 4pm fixes, plus crypto as a risk-appetite gauge"},
     {"id": "inputs", "title": "Inputs & Commodities", "cadence": "end of day",
-     "subtitle": "Traded proxies for what you build with"},
+     "subtitle": "Traded proxies for what you build with, move, and burn"},
+    {"id": "thematic", "title": "Thematic & Cycle", "cadence": "end of day",
+     "subtitle": ("Where capital is going. Read these for direction over months, not for "
+                  "today's move.")},
+    {"id": "inflation", "title": "Inflation", "cadence": "mixed",
+     "subtitle": ("What inflation has done (ABS, quarterly) and what the bond market "
+                  "thinks it will do (breakevens, daily).")},
     {"id": "structural", "title": "Structural / Construction", "cadence": "quarterly & monthly",
      "subtitle": ("ABS series. These move on release dates, not overnight - read the "
                   "reference period, not the refresh time.")},
@@ -122,6 +171,13 @@ def pct_change(obs):
     if not prev:
         return None, None
     return round(cur - prev, 4), round((cur / prev - 1) * 100, 2)
+
+
+def breakeven(nominal, real):
+    """Market-implied inflation = nominal yield - real (inflation-linked) yield."""
+    if nominal is None or real is None:
+        return None
+    return round(nominal - real, 3)
 
 
 def yoy_change(obs, periods_back=4):

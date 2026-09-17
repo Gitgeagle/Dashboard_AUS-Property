@@ -208,6 +208,26 @@ def build():
         # For series already expressed as a percentage, a percent-change-of-a-percent is
         # meaningless - report the move in percentage points instead.
         is_pct = s.get("unit") == "%"
+        # Some series are published only as an index although the annual change is the
+        # quantity people actually quote (trimmed mean "is 3.6%", not "is 146.1").
+        spark_obs = obs
+        if s.get("display") == "yoy":
+            y = tiles.yoy_change(obs)
+            if y is None:
+                errors[f"abs/{sid}"] = "not enough history for year-on-year"
+                continue
+            prev_y = tiles.yoy_change(obs[:-1])
+            value = y
+            change = round(y - prev_y, 2) if prev_y is not None else None
+            change_pct = None
+            is_pct = True
+            # The sparkline has to plot the same quantity as the headline. Charting the
+            # underlying index here would draw a rising line beneath a falling rate.
+            spark_obs = []
+            for i in range(4, len(obs)):
+                yv = tiles.yoy_change(obs[:i + 1])
+                if yv is not None:
+                    spark_obs.append((obs[i][0], yv))
         # For quarterly structural series the annual move is the signal and the quarter is
         # largely noise, so year-on-year rides on the tile alongside the period change.
         note = s.get("note")
@@ -215,12 +235,12 @@ def build():
         if yoy is not None and not is_pct:
             note = f"Year on year {yoy:+.1f}%" + (f" · {note}" if note else "")
         tile_list.append({
-            "id": sid, "label": s["label"], "panel": "structural",
+            "id": sid, "label": s["label"], "panel": s.get("panel", "structural"),
             "group": "ABS", "value": value, "unit": s.get("unit"),
             "change": change, "change_pct": None if is_pct else change_pct,
             "period": period, "freq": s.get("freq"),
             "asof": period, "age_days": s.get("age_days"),
-            "spark": [[p, v] for p, v in obs],
+            "spark": [[p, v] for p, v in spark_obs],
             "source": "ABS Data API", "note": note,
             "status": "stale" if s.get("stale") else "ok",
             "stale_reason": s.get("stale_reason"),
@@ -255,6 +275,61 @@ def build():
                 "spark": [[p, v] for p, v in obs],
                 "source": "ABS Data API (RES_DWELL)",
                 "note": note, "status": "ok",
+            })
+
+    # ------------------------------------------------- inflation breakevens
+    log("Building inflation breakevens...")
+    # Australia: RBA publishes a 10-year indexed (inflation-linked) bond yield alongside
+    # the nominal, so the difference is the market's 10-year inflation expectation.
+    f2 = (rba_data.get("f2") or {})
+    nom = (f2.get("FCMYGBAG10D") or {}).get("obs") or []
+    idx = (f2.get("FCMYGBAGID") or {}).get("obs") or []
+    if nom and idx:
+        idx_map = dict(idx)
+        hist = [[d, tiles.breakeven(v, idx_map[d])] for d, v in nom if d in idx_map]
+        hist = [h for h in hist if h[1] is not None]
+        if hist:
+            cur, prev = hist[-1], (hist[-2] if len(hist) > 1 else None)
+            tile_list.append({
+                "id": "au_breakeven_10y", "label": "AU 10y breakeven", "panel": "inflation",
+                "group": "Market-implied expectations", "value": cur[1], "unit": "%",
+                "change": round(cur[1] - prev[1], 3) if prev else None, "change_pct": None,
+                "asof": cur[0], "age_days": tiles.age_days(cur[0]),
+                "spark": hist[-260:], "source": "RBA F2 (nominal less indexed)", "status": "ok",
+                "note": "Nominal 10y less the 10y indexed bond - the market's inflation expectation.",
+            })
+    else:
+        errors["breakeven/au"] = "RBA nominal or indexed 10y unavailable"
+
+    try:
+        real_days = ustreasury.fetch_real()
+    except Exception as e:  # noqa: BLE001
+        real_days = []
+        errors["ustreasury/real"] = f"{type(e).__name__}: {e}"
+
+    if real_days and treasury_days:
+        real_by_date = {d["date"]: d for d in real_days}
+        for years, label in ((5, "US 5y breakeven"), (10, "US 10y breakeven"),
+                             (30, "US 30y breakeven")):
+            hist = []
+            for d in treasury_days:
+                r = real_by_date.get(d["date"])
+                if not r:
+                    continue
+                be = tiles.breakeven(tiles.yield_at(d["points"], years),
+                                     tiles.yield_at(r["points"], years))
+                if be is not None:
+                    hist.append([d["date"], be])
+            if not hist:
+                continue
+            cur, prev = hist[-1], (hist[-2] if len(hist) > 1 else None)
+            tile_list.append({
+                "id": f"us_breakeven_{years}y", "label": label, "panel": "inflation",
+                "group": "Market-implied expectations", "value": cur[1], "unit": "%",
+                "change": round(cur[1] - prev[1], 3) if prev else None, "change_pct": None,
+                "asof": cur[0], "age_days": tiles.age_days(cur[0]),
+                "spark": hist[-260:], "source": "US Treasury (nominal less TIPS)", "status": "ok",
+                "note": "Nominal less TIPS yield - what the bond market prices for inflation.",
             })
 
     # ---------------------------------------------------------------- FRED
