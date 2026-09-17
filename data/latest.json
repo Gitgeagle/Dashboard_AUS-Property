@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T02:52:40.566292Z",
+ "generated_at": "2026-09-17T02:53:32.933911Z",
  "panels": [
   {
    "id": "rates",
@@ -23583,10 +23583,10 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "^HSI",
-       "value": 24464.43,
+       "value": 24454.32,
        "unit": "HKD",
-       "change": -249.3493,
-       "change_pct": -1.01,
+       "change": -259.4593,
+       "change_pct": -1.05,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -24572,7 +24572,7 @@
         ],
         [
          "2026-09-17",
-         24464.4297
+         24454.3203
         ]
        ],
        "source": "Yahoo Finance",
@@ -24586,10 +24586,10 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "000001.SS",
-       "value": 3879.8533,
+       "value": 3879.3552,
        "unit": "CNY",
-       "change": -11.7478,
-       "change_pct": -0.3,
+       "change": -12.2459,
+       "change_pct": -0.31,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -25563,7 +25563,7 @@
         ],
         [
          "2026-09-17",
-         3879.8533
+         3879.3552
         ]
        ],
        "source": "Yahoo Finance",
@@ -25577,9 +25577,9 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "^KS11",
-       "value": 6722.59,
+       "value": 6722.81,
        "unit": "KRW",
-       "change": 4.6198,
+       "change": 4.8398,
        "change_pct": 0.07,
        "asof": "2026-09-17",
        "age_days": 0,
@@ -26558,7 +26558,7 @@
         ],
         [
          "2026-09-17",
-         6722.5898
+         6722.8101
         ]
        ],
        "source": "Yahoo Finance",
@@ -27584,9 +27584,9 @@
        "panel": "equities",
        "group": "Australia",
        "symbol": "^AXJO",
-       "value": 8726.3,
+       "value": 8726.5,
        "unit": "AUD",
-       "change": 29.8,
+       "change": 30.0,
        "change_pct": 0.34,
        "asof": "2026-09-17",
        "age_days": 0,
@@ -28609,7 +28609,7 @@
         ],
         [
          "2026-09-17",
-         8726.2998
+         8726.5
         ]
        ],
        "source": "Yahoo Finance",
@@ -29675,10 +29675,10 @@
        "panel": "sector",
        "group": "Australian property",
        "symbol": "^AXPJ",
-       "value": 1506.8,
+       "value": 1507.1,
        "unit": "AUD",
-       "change": 10.0,
-       "change_pct": 0.67,
+       "change": 10.3,
+       "change_pct": 0.69,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -30700,7 +30700,7 @@
         ],
         [
          "2026-09-17",
-         1506.8
+         1507.1
         ]
        ],
        "source": "Yahoo Finance",
@@ -30719,9 +30719,9 @@
        "panel": "sector",
        "group": "Australian inputs",
        "symbol": "^AXMJ",
-       "value": 23686.9,
+       "value": 23686.4,
        "unit": "AUD",
-       "change": -243.6,
+       "change": -244.1,
        "change_pct": -1.02,
        "asof": "2026-09-17",
        "age_days": 0,
@@ -31744,7 +31744,7 @@
         ],
         [
          "2026-09-17",
-         23686.9004
+         23686.4004
         ]
        ],
        "source": "Yahoo Finance",
@@ -43481,10 +43481,10 @@
        "panel": "inputs",
        "group": "Construction inputs",
        "symbol": "HG=F",
-       "value": 6.499,
+       "value": 6.5,
        "unit": "USD",
-       "change": 0.1305,
-       "change_pct": 2.05,
+       "change": 0.1315,
+       "change_pct": 2.06,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -44494,7 +44494,7 @@
         ],
         [
          "2026-09-17",
-         6.499
+         6.5
         ]
        ],
        "source": "Yahoo Finance",
@@ -46567,10 +46567,10 @@
        "panel": "inputs",
        "group": "Energy",
        "symbol": "CL=F",
-       "value": 102.01,
+       "value": 102.09,
        "unit": "USD",
-       "change": -3.82,
-       "change_pct": -3.61,
+       "change": -3.74,
+       "change_pct": -3.53,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -47580,7 +47580,7 @@
         ],
         [
          "2026-09-17",
-         102.01
+         102.09
         ]
        ],
        "source": "Yahoo Finance",
@@ -47599,10 +47599,10 @@
        "panel": "inputs",
        "group": "Risk appetite",
        "symbol": "GC=F",
-       "value": 4326.8,
+       "value": 4328.1,
        "unit": "USD",
-       "change": -5.9998,
-       "change_pct": -0.14,
+       "change": -4.6998,
+       "change_pct": -0.11,
        "asof": "2026-09-17",
        "age_days": 0,
        "spark": [
@@ -48612,7 +48612,7 @@
         ],
         [
          "2026-09-17",
-         4326.7998
+         4328.1001
         ]
        ],
        "source": "Yahoo Finance",
@@ -49661,9 +49661,9 @@
        "panel": "inputs",
        "group": "Risk appetite",
        "symbol": "DX-Y.NYB",
-       "value": 100.34,
+       "value": 100.342,
        "unit": "USD",
-       "change": 0.03,
+       "change": 0.032,
        "change_pct": 0.03,
        "asof": "2026-09-17",
        "age_days": 0,
@@ -50678,7 +50678,7 @@
         ],
         [
          "2026-09-17",
-         100.34
+         100.342
         ]
        ],
        "source": "Yahoo Finance",
