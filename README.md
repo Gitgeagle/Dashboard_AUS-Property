@@ -12,16 +12,54 @@ database, no paid feeds, no accounts beyond an optional free FRED key.
 
 | Panel | Cadence | Contents |
 |---|---|---|
-| Rates & Credit | daily | RBA cash rate, AU 2/3/5/10yr, 3m bank bill, AU lending rates, US 2/10/30yr |
-| Yield Curve Shape | daily | AU and US curves with 1-month and 1-year ghost overlays, spreads, shape classifier |
+| Rates & Credit | daily | RBA cash rate, AU 2/3/5/10yr and longest bond, 3m bank bill, AU lending rates, US 2/10/30yr |
+| Credit & Lending | monthly & quarterly | BBB and A corporate bond yields and BBB spreads (F3), small/medium/large business lending rates (F7), credit growth (D1), housing finance commitments (ABS) |
+| Yield Curve Shape | daily | AU curve to 2054 (bills, F2 bonds, then individual F16 bonds) and US curve, with 1-month and 1-year ghost overlays, spreads, shape classifier |
+| Calendar & Releases | daily | Upcoming ABS releases, RBA and FOMC decisions in Sydney time; RBA, APRA and Fed media release headlines |
 | Global Equities | end of day | 16 indices ordered by trading session — Americas, Europe, Asia, then our open |
 | Property & Input Sectors | end of day | ASX 200 A-REIT, ASX 200 Materials, DJ US Real Estate, VNQ |
+| Listed Property & Construction | end of day | ~80 developers, REITs, contractors, materials, lenders and global peers as a sortable screener: returns, market cap, P/E, P/B, yield, gearing |
 | Capital City Property | quarterly | ABS median house and unit prices for all 8 capitals, QoQ and YoY |
+| Supply Pipeline | monthly & quarterly | Dwelling approvals (rolling 12 months) nationally and by capital; dwellings under construction and completed |
+| Demand & Labour | monthly & quarterly | Unemployment, job vacancies, population growth, net overseas migration |
 | FX & Crypto | daily | AUD crosses and TWI (RBA 4pm fixes), BTC/ETH in AUD |
-| Inputs & Commodities | end of day | Steel (HRC + producers), copper, aluminium; Brent, WTI, **diesel**, US & EU gas; freight & shipping; gold, VIX, DXY |
+| Inputs & Commodities | end of day & monthly | Steel (HRC + producers), copper, aluminium; Brent, WTI, **diesel**, US & EU gas; NEM wholesale electricity by state; World Bank iron ore, coal and timber; freight & shipping; gold, VIX, DXY |
 | Thematic & Cycle | end of day | Housing/infrastructure, materials & energy sectors, energy-transition themes |
 | Inflation | mixed | Headline, trimmed mean and weighted median CPI, CPI rents, plus **daily AU and US breakevens** |
-| Structural / Construction | quarterly | ABS construction PPIs, work done, dwelling commencements, WPI, mean dwelling price |
+| Structural / Construction | quarterly | ABS construction PPIs, materials used in house building by capital, work done, dwelling commencements, WPI, mean dwelling price |
+
+## Drilling in
+
+Every tile opens. Click it (or Tab to it and press Enter) for a full-size chart with
+1M to 10Y ranges, the window's high, low and where today sits between them, period
+returns from 1W to 5Y, a description of the series, and the latest releases as a table
+with a CSV download of the whole history. `←` and `→` step through the rest of the panel;
+`Esc` closes. The URL follows the view (`#/au_10y`), so a chart can be sent as a link.
+
+Press `/` or `Ctrl+K` anywhere for the command line. Type a name or a code (`hrc`,
+`axjo`, `sydney house`, `au 10`) and Enter. Borrowing Bloomberg's habit, a trailing
+mnemonic picks the section: `GP` the chart (the default), `HP` the history table,
+`DES` the description, so `hrc hp` lands on steel's recent closes.
+
+`Compare +` on any chart (or `COMP` after a name in the command line) overlays up to four
+series from the same start date - prices rebased to percent, rates in basis points, on
+separate axes when both are present, because they cannot honestly share one. Presets
+cover the pairings that decide a feasibility: A-REITs against the 10-year, the steel
+chain, energy inputs, the rates path.
+
+Layouts across the top (Debt, Inputs, Cycle, Stocks, Watchlist) cut the page for the
+question at hand; `☆ Watch` on any chart pins it. Both live in your browser only.
+
+Two strips sit above the panels. **Next up** lists the high-importance releases in the
+next fortnight. **Unusual moves** ranks today's moves by how far each sits outside that
+series' own normal daily range (today's change over the standard deviation of a year of
+daily changes), so a 3σ diesel move outranks a routine Nasdaq wobble. A traded price
+that sat unchanged for four or more sessions and then stepped is tagged `THIN` and kept
+off that strip - HRC futures did exactly this in Sep 2026, and the step was a thin
+market or contract roll, not news.
+
+History depth follows the source: 10 years for RBA and ABS series, 5 years for Yahoo
+and Treasury (each extra year costs requests or bytes).
 
 ## Reading it honestly
 
@@ -37,8 +75,9 @@ than none:
 - **The Australian curve mixes instruments.** Its short end (1M–6M) is bank bills, which
   carry bank credit risk; 2Y–10Y is Commonwealth government bonds. The step between them
   is a credit spread, not curve shape — so the chart draws bills as squares and bonds as
-  circles. The RBA publishes no free interpolated yield past 10 years, so the AU curve
-  stops where the US one runs on to 30Y.
+  circles. The RBA publishes no interpolated yield past 10 years, so beyond 10Y the curve
+  plots individual Treasury bonds from table F16 at their actual maturities, drawn as
+  hollow circles - real bonds, not a fitted curve.
 
 ## Data sources
 
@@ -52,6 +91,29 @@ All free. All either official or public.
 | Yahoo Finance chart endpoint | no | Equities, commodity futures, crypto |
 | Coinbase / Kraken public APIs | no | Crypto fallback |
 | [FRED](https://fred.stlouisfed.org/docs/api/fred/) | free key, optional | US Fed funds, US CPI |
+| RBA tables F3, F7, F16, D1 | no | Corporate bond yields, business lending rates, individual long bonds, credit growth |
+| ABS `BA_GCCSA`, `LEND_HOUSING`, `LF`, `JV`, `ERP_COMP_Q`, PPI inputs | no | Approvals, housing finance, labour, population, materials costs by city |
+| [World Bank Pink Sheet](https://www.worldbank.org/en/research/commodity-markets) (CC BY 4.0) | no | Iron ore, Australian coal, sawnwood, plywood (monthly) |
+| [AEMO price and demand](https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/data-nem/aggregated-data) | no | NEM wholesale electricity by region; history accumulates run over run |
+| ABS release calendar, RBA board schedule, Fed FOMC calendar | no | Upcoming releases and rate decisions, Sydney time |
+| RBA, APRA and Fed media pages / RSS | no | Headlines and links only - never article text |
+| Yahoo Finance `quoteSummary` (cookie + crumb) | no | Key statistics for the equity universe, refreshed weekly |
+
+Deliberately **not** used, because this repo and site are public and the terms say no:
+
+- **ASX** (Rate Tracker implied cash-rate path, the listed companies CSV): site terms allow
+  personal, non-commercial use only. The equity universe is hand-curated in
+  `fetch/sources/universe.py` instead.
+- **ICE BofA credit spreads via FRED**: ICE's notes restrict them to internal use. BBB
+  spreads here are computed from RBA F3 less F2.
+- **AIP terminal gate prices** (diesel by city): no licence stated, so treated as all rights
+  reserved. NY Harbor ULSD futures stay the diesel read.
+- **Atlanta Fed market probability tracker**: terms not yet reviewed.
+- **Company business descriptions** from Yahoo: licensed third-party prose. Only numbers
+  and short facts (sector, industry, website) are stored.
+
+Each of those is a question for a lawyer, not one to infer - and all of them change if the
+site is ever made private.
 
 Notes on sources that did **not** work, recorded so nobody retries them:
 
@@ -204,7 +266,8 @@ code is identical, only the trigger changes.
 
 `data/latest.json` is regenerated in full on every run, and CI refreshes it on a cron
 while you may be rebuilding it locally from new code. `.gitattributes` marks it
-`merge=ours` so rebases stop trying to hand-merge a 780KB generated blob. Enable the
+`merge=ours` so rebases stop trying to hand-merge generated JSON (the same applies to
+`data/series/`). Enable the
 driver once per clone:
 
 ```bash
@@ -218,9 +281,14 @@ fetch/
   main.py              orchestrator; isolates every source so one failure degrades one tile
   httpget.py           stdlib HTTP with a curl TLS fallback
   tiles.py             tile registry, panel order, curve building, shape classifier
-  sources/             rba, abs, ustreasury, yahoo, crypto, fred
-data/latest.json       what the page reads; committed each run so git history is the archive
+  sources/             rba, abs, ustreasury, yahoo, crypto, fred - the core set
+                       rba_extra, abs_extra, worldbank, aemo, releases, news, universe -
+                       imported one by one, so a broken module costs only its own tiles
+data/latest.json       what the page reads on load: every tile, with a thinned sparkline
+data/series/{id}.json  full history per tile, fetched only when that tile is opened
+data/company/{id}.json key statistics per listed company, refreshed when a week old
 index.html app.js style.css    single page, no build step
+chart.js explore.js    drill-down chart, and the drill-down view + command line
 ```
 
 Committing the data each morning is deliberate: free APIs give you today's number, not

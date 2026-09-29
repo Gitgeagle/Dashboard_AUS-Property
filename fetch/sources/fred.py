@@ -19,7 +19,7 @@ SERIES = {
 }
 
 
-def fetch_series(sid, key, n=260):
+def fetch_series(sid, key, n=2600):
     js = get_json(URL.format(sid=sid, key=key, n=n))
     obs = []
     for o in js.get("observations", []):
