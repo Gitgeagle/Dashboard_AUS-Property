@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T22:53:04.325603Z",
+ "generated_at": "2026-09-29T00:00:23.185701Z",
  "panels": [
   {
    "id": "rates",
@@ -19,17 +19,9 @@
        "unit": "%",
        "change": 0.0,
        "change_pct": null,
-       "asof": "2026-09-24",
+       "asof": "2026-09-28",
        "age_days": 1,
        "spark": [
-        [
-         "2025-09-17",
-         3.6
-        ],
-        [
-         "2025-09-18",
-         3.6
-        ],
         [
          "2025-09-19",
          3.6
@@ -1061,6 +1053,14 @@
         [
          "2026-09-24",
          4.35
+        ],
+        [
+         "2026-09-25",
+         4.35
+        ],
+        [
+         "2026-09-28",
+         4.35
         ]
        ],
        "source": "RBA F1",
@@ -1072,21 +1072,13 @@
        "label": "AU 3-month bank bill",
        "panel": "rates",
        "group": "Australia",
-       "value": 4.73,
+       "value": 4.78,
        "unit": "%",
        "change": 0.02,
        "change_pct": null,
-       "asof": "2026-09-24",
+       "asof": "2026-09-28",
        "age_days": 1,
        "spark": [
-        [
-         "2025-09-15",
-         3.59
-        ],
-        [
-         "2025-09-16",
-         3.56
-        ],
         [
          "2025-09-17",
          3.56
@@ -2118,6 +2110,14 @@
         [
          "2026-09-24",
          4.73
+        ],
+        [
+         "2026-09-25",
+         4.76
+        ],
+        [
+         "2026-09-28",
+         4.78
         ]
        ],
        "source": "RBA F1",
@@ -2134,7 +2134,7 @@
        "change": -0.056,
        "change_pct": null,
        "asof": "2026-09-23",
-       "age_days": 2,
+       "age_days": 6,
        "spark": [
         [
          "2025-09-15",
@@ -3191,7 +3191,7 @@
        "change": -0.055,
        "change_pct": null,
        "asof": "2026-09-23",
-       "age_days": 2,
+       "age_days": 6,
        "spark": [
         [
          "2025-09-15",
@@ -4248,7 +4248,7 @@
        "change": -0.057,
        "change_pct": null,
        "asof": "2026-09-23",
-       "age_days": 2,
+       "age_days": 6,
        "spark": [
         [
          "2025-09-15",
@@ -5305,7 +5305,7 @@
        "change": -0.048,
        "change_pct": null,
        "asof": "2026-09-23",
-       "age_days": 2,
+       "age_days": 6,
        "spark": [
         [
          "2025-09-15",
@@ -6367,7 +6367,7 @@
        "change": 0.0,
        "change_pct": null,
        "asof": "2026-08-31",
-       "age_days": 25,
+       "age_days": 29,
        "spark": [
         [
          "2015-08-31",
@@ -6916,7 +6916,7 @@
        "change": 0.0,
        "change_pct": null,
        "asof": "2026-08-31",
-       "age_days": 25,
+       "age_days": 29,
        "spark": [
         [
          "2005-01-31",
@@ -7973,17 +7973,13 @@
        "label": "US 2-year Treasury",
        "panel": "rates",
        "group": "United States",
-       "value": 4.81,
+       "value": 4.92,
        "unit": "%",
-       "change": -0.06,
+       "change": 0.11,
        "change_pct": null,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-12",
-         3.56
-        ],
         [
          "2025-09-15",
          3.54
@@ -9019,6 +9015,10 @@
         [
          "2026-09-25",
          4.81
+        ],
+        [
+         "2026-09-28",
+         4.92
         ]
        ],
        "source": "US Treasury",
@@ -9029,17 +9029,13 @@
        "label": "US 10-year Treasury",
        "panel": "rates",
        "group": "United States",
-       "value": 5.17,
+       "value": 5.24,
        "unit": "%",
-       "change": -0.01,
+       "change": 0.07,
        "change_pct": null,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-12",
-         4.06
-        ],
         [
          "2025-09-15",
          4.05
@@ -10075,6 +10071,10 @@
         [
          "2026-09-25",
          5.17
+        ],
+        [
+         "2026-09-28",
+         5.24
         ]
        ],
        "source": "US Treasury",
@@ -10085,17 +10085,13 @@
        "label": "US 30-year Treasury",
        "panel": "rates",
        "group": "United States",
-       "value": 5.49,
+       "value": 5.56,
        "unit": "%",
-       "change": 0.02,
+       "change": 0.07,
        "change_pct": null,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-12",
-         4.68
-        ],
         [
          "2025-09-15",
          4.66
@@ -11131,6 +11127,10 @@
         [
          "2026-09-25",
          5.49
+        ],
+        [
+         "2026-09-28",
+         5.56
         ]
        ],
        "source": "US Treasury",
@@ -11158,7 +11158,7 @@
        "unit": "pp",
        "change": 0.008,
        "change_pct": null,
-       "asof": "2026-09-24",
+       "asof": "2026-09-28",
        "age_days": 1,
        "spark": [
         [
@@ -12211,11 +12211,11 @@
        "label": "Australia: 10y - 3m spread",
        "panel": "curves",
        "group": "Australia",
-       "value": 0.515,
+       "value": 0.465,
        "unit": "pp",
        "change": null,
        "change_pct": null,
-       "asof": "2026-09-24",
+       "asof": "2026-09-28",
        "age_days": 1,
        "spark": [],
        "source": "RBA tables F1 and F2",
@@ -12232,17 +12232,13 @@
        "label": "United States: 10y - 2y spread",
        "panel": "curves",
        "group": "United States",
-       "value": 0.36,
+       "value": 0.32,
        "unit": "pp",
-       "change": 0.05,
+       "change": -0.04,
        "change_pct": null,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-12",
-         0.5
-        ],
         [
          "2025-09-15",
          0.51
@@ -13278,6 +13274,10 @@
         [
          "2026-09-25",
          0.36
+        ],
+        [
+         "2026-09-28",
+         0.32
         ]
        ],
        "source": "US Treasury daily par yield curve",
@@ -13289,12 +13289,12 @@
        "label": "United States: 10y - 3m spread",
        "panel": "curves",
        "group": "United States",
-       "value": 0.93,
+       "value": 0.96,
        "unit": "pp",
        "change": null,
        "change_pct": null,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [],
        "source": "US Treasury daily par yield curve",
        "status": "ok",
@@ -13319,17 +13319,13 @@
        "panel": "equities",
        "group": "Americas",
        "symbol": "^GSPC",
-       "value": 7743.41,
+       "value": 7683.69,
        "unit": "USD",
-       "change": 39.2801,
-       "change_pct": 0.51,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -59.7202,
+       "change_pct": -0.77,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         6643.7002
-        ],
         [
          "2025-09-29",
          6661.21
@@ -14329,6 +14325,10 @@
         [
          "2026-09-25",
          7743.4102
+        ],
+        [
+         "2026-09-28",
+         7683.6899
         ]
        ],
        "source": "Yahoo Finance",
@@ -14342,17 +14342,13 @@
        "panel": "equities",
        "group": "Americas",
        "symbol": "^IXIC",
-       "value": 27068.717,
+       "value": 26820.38,
        "unit": "USD",
-       "change": 129.3479,
-       "change_pct": 0.48,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -248.3407,
+       "change_pct": -0.92,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         22484.0703
-        ],
         [
          "2025-09-29",
          22591.1504
@@ -15351,7 +15347,11 @@
         ],
         [
          "2026-09-25",
-         27068.7168
+         27068.7207
+        ],
+        [
+         "2026-09-28",
+         26820.3809
         ]
        ],
        "source": "Yahoo Finance",
@@ -15365,17 +15365,13 @@
        "panel": "equities",
        "group": "Americas",
        "symbol": "^DJI",
-       "value": 51828.62,
+       "value": 51481.51,
        "unit": "USD",
-       "change": 478.6395,
-       "change_pct": 0.93,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -347.1111,
+       "change_pct": -0.67,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         46247.2891
-        ],
         [
          "2025-09-29",
          46316.0703
@@ -16375,6 +16371,10 @@
         [
          "2026-09-25",
          51828.6211
+        ],
+        [
+         "2026-09-28",
+         51481.5117
         ]
        ],
        "source": "Yahoo Finance",
@@ -16388,17 +16388,13 @@
        "panel": "equities",
        "group": "Americas",
        "symbol": "^RUT",
-       "value": 2837.552,
+       "value": 2817.912,
        "unit": "USD",
-       "change": 1.9819,
-       "change_pct": 0.07,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -19.638,
+       "change_pct": -0.69,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         2434.3201
-        ],
         [
          "2025-09-29",
          2435.25
@@ -17397,7 +17393,11 @@
         ],
         [
          "2026-09-25",
-         2837.552
+         2837.55
+        ],
+        [
+         "2026-09-28",
+         2817.9121
         ]
        ],
        "source": "Yahoo Finance",
@@ -17411,21 +17411,13 @@
        "panel": "equities",
        "group": "Americas",
        "symbol": "^GSPTSE",
-       "value": 35800.89,
+       "value": 35489.86,
        "unit": "CAD",
-       "change": 94.39,
-       "change_pct": 0.26,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -311.0384,
+       "change_pct": -0.87,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         29732.0
-        ],
-        [
-         "2025-09-26",
-         29761.3008
-        ],
         [
          "2025-09-29",
          29971.9004
@@ -18424,7 +18416,11 @@
         ],
         [
          "2026-09-25",
-         35800.8906
+         35800.8984
+        ],
+        [
+         "2026-09-28",
+         35489.8594
         ]
        ],
        "source": "Yahoo Finance",
@@ -18443,21 +18439,13 @@
        "panel": "equities",
        "group": "Europe",
        "symbol": "^FTSE",
-       "value": 10695.25,
+       "value": 10684.88,
        "unit": "GBP",
-       "change": 15.25,
-       "change_pct": 0.14,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -10.4198,
+       "change_pct": -0.1,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         9214.0
-        ],
-        [
-         "2025-09-26",
-         9284.7998
-        ],
         [
          "2025-09-29",
          9299.7998
@@ -19464,7 +19452,7 @@
         ],
         [
          "2026-09-25",
-         10695.25
+         10695.2998
         ]
        ],
        "source": "Yahoo Finance",
@@ -19478,21 +19466,13 @@
        "panel": "equities",
        "group": "Europe",
        "symbol": "^GDAXI",
-       "value": 25408.64,
+       "value": 25374.42,
        "unit": "EUR",
-       "change": 142.1107,
-       "change_pct": 0.56,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -34.2206,
+       "change_pct": -0.13,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         23534.8301
-        ],
-        [
-         "2025-09-26",
-         23739.4707
-        ],
         [
          "2025-09-29",
          23745.0605
@@ -20496,6 +20476,10 @@
         [
          "2026-09-24",
          25266.5293
+        ],
+        [
+         "2026-09-25",
+         25408.6406
         ]
        ],
        "source": "Yahoo Finance",
@@ -20509,21 +20493,13 @@
        "panel": "equities",
        "group": "Europe",
        "symbol": "^FCHI",
-       "value": 8077.8,
+       "value": 8078.48,
        "unit": "EUR",
-       "change": -3.6302,
-       "change_pct": -0.04,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.6802,
+       "change_pct": 0.01,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         7795.4199
-        ],
-        [
-         "2025-09-26",
-         7870.6802
-        ],
         [
          "2025-09-29",
          7880.8701
@@ -21535,6 +21511,10 @@
         [
          "2026-09-24",
          8081.4302
+        ],
+        [
+         "2026-09-25",
+         8077.7998
         ]
        ],
        "source": "Yahoo Finance",
@@ -21548,21 +21528,13 @@
        "panel": "equities",
        "group": "Europe",
        "symbol": "^STOXX50E",
-       "value": 6302.82,
+       "value": 6301.28,
        "unit": "EUR",
-       "change": 30.32,
-       "change_pct": 0.48,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -1.5398,
+       "change_pct": -0.02,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         5444.8901
-        ],
-        [
-         "2025-09-26",
-         5499.7002
-        ],
         [
          "2025-09-29",
          5506.8501
@@ -22554,6 +22526,10 @@
         [
          "2026-09-24",
          6272.5
+        ],
+        [
+         "2026-09-25",
+         6302.8198
         ]
        ],
        "source": "Yahoo Finance",
@@ -22572,21 +22548,13 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "^N225",
-       "value": 66364.2,
+       "value": 65877.62,
        "unit": "JPY",
-       "change": 850.2117,
-       "change_pct": 1.3,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -486.5831,
+       "change_pct": -0.73,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         45754.9297
-        ],
-        [
-         "2025-09-26",
-         45354.9883
-        ],
         [
          "2025-09-29",
          45043.75
@@ -23546,6 +23514,10 @@
         [
          "2026-09-24",
          65513.9883
+        ],
+        [
+         "2026-09-25",
+         66364.2031
         ]
        ],
        "source": "Yahoo Finance",
@@ -23559,21 +23531,13 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "^HSI",
-       "value": 24510.09,
+       "value": 24642.51,
        "unit": "HKD",
-       "change": -251.0409,
-       "change_pct": -1.01,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 132.4202,
+       "change_pct": 0.54,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         26484.6797
-        ],
-        [
-         "2025-09-26",
-         26128.1992
-        ],
         [
          "2025-09-29",
          26622.8809
@@ -24545,6 +24509,10 @@
         [
          "2026-09-24",
          24761.1309
+        ],
+        [
+         "2026-09-25",
+         24510.0898
         ]
        ],
        "source": "Yahoo Finance",
@@ -24558,25 +24526,13 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "000001.SS",
-       "value": 3888.374,
+       "value": 3823.6206,
        "unit": "CNY",
-       "change": -48.146,
-       "change_pct": -1.22,
-       "asof": "2026-09-24",
+       "change": -64.7534,
+       "change_pct": -1.67,
+       "asof": "2026-09-28",
        "age_days": 1,
        "spark": [
-        [
-         "2025-09-24",
-         3853.6421
-        ],
-        [
-         "2025-09-25",
-         3853.302
-        ],
-        [
-         "2025-09-26",
-         3828.106
-        ],
         [
          "2025-09-29",
          3862.532
@@ -25549,29 +25505,13 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "^KS11",
-       "value": 7080.92,
+       "value": 6889.74,
        "unit": "KRW",
-       "change": 63.0098,
-       "change_pct": 0.9,
-       "asof": "2026-09-23",
-       "age_days": 2,
+       "change": -191.1799,
+       "change_pct": -2.7,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-23",
-         3486.1899
-        ],
-        [
-         "2025-09-24",
-         3472.1399
-        ],
-        [
-         "2025-09-25",
-         3471.1101
-        ],
-        [
-         "2025-09-26",
-         3386.05
-        ],
         [
          "2025-09-29",
          3431.21
@@ -26544,21 +26484,13 @@
        "panel": "equities",
        "group": "Asia",
        "symbol": "^NSEI",
-       "value": 23140.5,
+       "value": 22780.25,
        "unit": "INR",
-       "change": 77.4004,
-       "change_pct": 0.34,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -360.25,
+       "change_pct": -1.56,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         24890.8496
-        ],
-        [
-         "2025-09-26",
-         24654.6992
-        ],
         [
          "2025-09-29",
          24634.9004
@@ -27534,6 +27466,10 @@
         [
          "2026-09-24",
          23063.0996
+        ],
+        [
+         "2026-09-25",
+         23140.5
         ]
        ],
        "source": "Yahoo Finance",
@@ -27552,21 +27488,13 @@
        "panel": "equities",
        "group": "Australia",
        "symbol": "^AXJO",
-       "value": 8665.0,
+       "value": 8679.7,
        "unit": "AUD",
-       "change": -37.0,
-       "change_pct": -0.43,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 14.7,
+       "change_pct": 0.17,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         8773.0
-        ],
-        [
-         "2025-09-26",
-         8787.7002
-        ],
         [
          "2025-09-29",
          8862.7998
@@ -28574,6 +28502,10 @@
         [
          "2026-09-24",
          8702.0
+        ],
+        [
+         "2026-09-25",
+         8665.0
         ]
        ],
        "source": "Yahoo Finance",
@@ -28587,21 +28519,13 @@
        "panel": "equities",
        "group": "Australia",
        "symbol": "^AORD",
-       "value": 8845.6,
+       "value": 8850.7,
        "unit": "AUD",
-       "change": -51.4,
-       "change_pct": -0.58,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 5.1004,
+       "change_pct": 0.06,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         9063.4004
-        ],
-        [
-         "2025-09-26",
-         9079.2002
-        ],
         [
          "2025-09-29",
          9148.5
@@ -29609,6 +29533,10 @@
         [
          "2026-09-24",
          8897.0
+        ],
+        [
+         "2026-09-25",
+         8845.5996
         ]
        ],
        "source": "Yahoo Finance",
@@ -29635,21 +29563,13 @@
        "panel": "sector",
        "group": "Australian property",
        "symbol": "^AXPJ",
-       "value": 1485.0,
+       "value": 1493.5,
        "unit": "AUD",
-       "change": -4.9,
-       "change_pct": -0.33,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 8.5,
+       "change_pct": 0.57,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         1871.6
-        ],
-        [
-         "2025-09-26",
-         1865.1
-        ],
         [
          "2025-09-29",
          1868.7
@@ -30657,6 +30577,10 @@
         [
          "2026-09-24",
          1489.9
+        ],
+        [
+         "2026-09-25",
+         1485.0
         ]
        ],
        "source": "Yahoo Finance",
@@ -30675,21 +30599,13 @@
        "panel": "sector",
        "group": "Australian inputs",
        "symbol": "^AXMJ",
-       "value": 24016.2,
+       "value": 23693.6,
        "unit": "AUD",
-       "change": -203.8,
-       "change_pct": -0.84,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -322.5992,
+       "change_pct": -1.34,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         18435.1992
-        ],
-        [
-         "2025-09-26",
-         18600.1992
-        ],
         [
          "2025-09-29",
          18649.5996
@@ -31697,6 +31613,10 @@
         [
          "2026-09-24",
          24220.0
+        ],
+        [
+         "2026-09-25",
+         24016.1992
         ]
        ],
        "source": "Yahoo Finance",
@@ -31710,21 +31630,13 @@
        "panel": "sector",
        "group": "Australian inputs",
        "symbol": "JHX.AX",
-       "value": 36.98,
+       "value": 37.0,
        "unit": "AUD",
-       "change": -0.94,
-       "change_pct": -2.48,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.02,
+       "change_pct": 0.05,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         27.32
-        ],
-        [
-         "2025-09-26",
-         28.27
-        ],
         [
          "2025-09-29",
          28.47
@@ -32736,6 +32648,10 @@
         [
          "2026-09-25",
          36.98
+        ],
+        [
+         "2026-09-28",
+         37.0
         ]
        ],
        "source": "Yahoo Finance",
@@ -32749,21 +32665,13 @@
        "panel": "sector",
        "group": "Australian inputs",
        "symbol": "RWC.AX",
-       "value": 4.66,
+       "value": 4.71,
        "unit": "AUD",
-       "change": 0.03,
-       "change_pct": 0.65,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.05,
+       "change_pct": 1.07,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         4.22
-        ],
-        [
-         "2025-09-26",
-         4.15
-        ],
         [
          "2025-09-29",
          4.14
@@ -33775,6 +33683,10 @@
         [
          "2026-09-25",
          4.66
+        ],
+        [
+         "2026-09-28",
+         4.71
         ]
        ],
        "source": "Yahoo Finance",
@@ -33788,21 +33700,13 @@
        "panel": "sector",
        "group": "Australian inputs",
        "symbol": "BXB.AX",
-       "value": 18.55,
+       "value": 18.82,
        "unit": "AUD",
-       "change": -0.2,
-       "change_pct": -1.07,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.27,
+       "change_pct": 1.46,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         24.47
-        ],
-        [
-         "2025-09-26",
-         24.64
-        ],
         [
          "2025-09-29",
          24.78
@@ -34814,6 +34718,10 @@
         [
          "2026-09-25",
          18.55
+        ],
+        [
+         "2026-09-28",
+         18.82
         ]
        ],
        "source": "Yahoo Finance",
@@ -34832,16 +34740,16 @@
        "panel": "sector",
        "group": "Offshore property",
        "symbol": "^DJUSRE",
-       "value": 366.51,
+       "value": 365.02,
        "unit": "USD",
-       "change": -1.02,
-       "change_pct": -0.28,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -1.49,
+       "change_pct": -0.41,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
         [
-         "2026-09-25",
-         366.51
+         "2026-09-28",
+         365.02
         ]
        ],
        "source": "Yahoo Finance",
@@ -34855,17 +34763,13 @@
        "panel": "sector",
        "group": "Offshore property",
        "symbol": "VNQ",
-       "value": 90.99,
+       "value": 90.59,
        "unit": "USD",
-       "change": -0.18,
-       "change_pct": -0.2,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.4,
+       "change_pct": -0.44,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         91.02
-        ],
         [
          "2025-09-29",
          91.05
@@ -35897,7 +35801,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -35968,7 +35872,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36039,7 +35943,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36110,7 +36014,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36181,7 +36085,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36252,7 +36156,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36323,7 +36227,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36394,7 +36298,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36470,7 +36374,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36541,7 +36445,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36612,7 +36516,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36683,7 +36587,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36754,7 +36658,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36825,7 +36729,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36896,7 +36800,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -36967,7 +36871,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2023-Q2",
@@ -37044,17 +36948,13 @@
        "label": "AUD / USD",
        "panel": "fx",
        "group": "Australian dollar",
-       "value": 0.7019,
+       "value": 0.7023,
        "unit": "USD",
-       "change": -0.0013,
-       "change_pct": -0.18,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.0004,
+       "change_pct": 0.06,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-15",
-         0.6661
-        ],
         [
          "2025-09-16",
          0.6667
@@ -38090,6 +37990,10 @@
         [
          "2026-09-25",
          0.7019
+        ],
+        [
+         "2026-09-28",
+         0.7023
         ]
        ],
        "source": "RBA F11.1",
@@ -38101,17 +38005,13 @@
        "label": "AUD / CNY",
        "panel": "fx",
        "group": "Australian dollar",
-       "value": 4.7118,
+       "value": 4.714,
        "unit": "CNY",
-       "change": -0.01,
-       "change_pct": -0.21,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.0022,
+       "change_pct": 0.05,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-15",
-         4.7439
-        ],
         [
          "2025-09-16",
          4.744
@@ -39147,6 +39047,10 @@
         [
          "2026-09-25",
          4.7118
+        ],
+        [
+         "2026-09-28",
+         4.714
         ]
        ],
        "source": "RBA F11.1",
@@ -39160,15 +39064,11 @@
        "group": "Australian dollar",
        "value": 0.617,
        "unit": "EUR",
-       "change": -0.0011,
-       "change_pct": -0.18,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.0,
+       "change_pct": 0.0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-15",
-         0.5679
-        ],
         [
          "2025-09-16",
          0.5661
@@ -40204,6 +40104,10 @@
         [
          "2026-09-25",
          0.617
+        ],
+        [
+         "2026-09-28",
+         0.617
         ]
        ],
        "source": "RBA F11.1",
@@ -40215,17 +40119,13 @@
        "label": "AUD / GBP",
        "panel": "fx",
        "group": "Australian dollar",
-       "value": 0.531,
+       "value": 0.5304,
        "unit": "GBP",
-       "change": -0.0004,
-       "change_pct": -0.08,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.0006,
+       "change_pct": -0.11,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-15",
-         0.4912
-        ],
         [
          "2025-09-16",
          0.4895
@@ -41261,6 +41161,10 @@
         [
          "2026-09-25",
          0.531
+        ],
+        [
+         "2026-09-28",
+         0.5304
         ]
        ],
        "source": "RBA F11.1",
@@ -41272,17 +41176,13 @@
        "label": "AUD / JPY",
        "panel": "fx",
        "group": "Australian dollar",
-       "value": 111.08,
+       "value": 110.75,
        "unit": "JPY",
-       "change": -0.19,
-       "change_pct": -0.17,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.33,
+       "change_pct": -0.3,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-15",
-         98.26
-        ],
         [
          "2025-09-16",
          98.0
@@ -42318,6 +42218,10 @@
         [
          "2026-09-25",
          111.08
+        ],
+        [
+         "2026-09-28",
+         110.75
         ]
        ],
        "source": "RBA F11.1",
@@ -42331,15 +42235,11 @@
        "group": "Australian dollar",
        "value": 65.2,
        "unit": "index",
-       "change": -0.1,
-       "change_pct": -0.15,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.0,
+       "change_pct": 0.0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-15",
-         61.5
-        ],
         [
          "2025-09-16",
          61.5
@@ -43375,6 +43275,10 @@
         [
          "2026-09-25",
          65.2
+        ],
+        [
+         "2026-09-28",
+         65.2
         ]
        ],
        "source": "RBA F11.1",
@@ -43392,21 +43296,13 @@
        "panel": "fx",
        "group": "Crypto",
        "symbol": "BTC-AUD",
-       "value": 119576.22,
+       "value": 119048.26,
        "unit": "AUD",
-       "change": -890.4128,
-       "change_pct": -0.74,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -1451.6384,
+       "change_pct": -1.2,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2026-01-09",
-         135154.7031
-        ],
-        [
-         "2026-01-10",
-         135227.0938
-        ],
         [
          "2026-01-11",
          135847.0938
@@ -44437,7 +44333,15 @@
         ],
         [
          "2026-09-25",
-         119576.2188
+         119489.2578
+        ],
+        [
+         "2026-09-26",
+         120017.5391
+        ],
+        [
+         "2026-09-27",
+         120499.8984
         ]
        ],
        "source": "Yahoo Finance",
@@ -44451,21 +44355,13 @@
        "panel": "fx",
        "group": "Crypto",
        "symbol": "ETH-AUD",
-       "value": 3830.11,
+       "value": 3833.3914,
        "unit": "AUD",
-       "change": -6.5072,
-       "change_pct": -0.17,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.1599,
+       "change_pct": -0.0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2026-01-09",
-         4603.6245
-        ],
-        [
-         "2026-01-10",
-         4611.5601
-        ],
         [
          "2026-01-11",
          4664.7949
@@ -45496,7 +45392,15 @@
         ],
         [
          "2026-09-25",
-         3830.1104
+         3825.5874
+        ],
+        [
+         "2026-09-26",
+         3832.3237
+        ],
+        [
+         "2026-09-27",
+         3833.5513
         ]
        ],
        "source": "Yahoo Finance",
@@ -45523,21 +45427,13 @@
        "panel": "inputs",
        "group": "Construction inputs",
        "symbol": "HRC=F",
-       "value": 1330.0,
+       "value": 1324.0,
        "unit": "USD",
-       "change": 93.0,
-       "change_pct": 7.52,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 87.0,
+       "change_pct": 7.03,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         818.0
-        ],
-        [
-         "2025-09-26",
-         805.0
-        ],
         [
          "2025-09-29",
          802.0
@@ -46536,7 +46432,11 @@
         ],
         [
          "2026-09-25",
-         1330.0
+         1237.0
+        ],
+        [
+         "2026-09-28",
+         1324.0
         ]
        ],
        "source": "Yahoo Finance",
@@ -46550,21 +46450,13 @@
        "panel": "inputs",
        "group": "Construction inputs",
        "symbol": "HG=F",
-       "value": 6.779,
+       "value": 6.6205,
        "unit": "USD",
-       "change": 0.0605,
-       "change_pct": 0.9,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.075,
+       "change_pct": -1.12,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         4.7
-        ],
-        [
-         "2025-09-26",
-         4.7155
-        ],
         [
          "2025-09-29",
          4.841
@@ -47563,7 +47455,11 @@
         ],
         [
          "2026-09-25",
-         6.779
+         6.6955
+        ],
+        [
+         "2026-09-28",
+         6.6205
         ]
        ],
        "source": "Yahoo Finance",
@@ -47577,21 +47473,13 @@
        "panel": "inputs",
        "group": "Construction inputs",
        "symbol": "ALI=F",
-       "value": 3470.5,
+       "value": 3385.75,
        "unit": "USD",
-       "change": 43.75,
-       "change_pct": 1.28,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -49.25,
+       "change_pct": -1.43,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         2551.0
-        ],
-        [
-         "2025-09-26",
-         2544.75
-        ],
         [
          "2025-09-29",
          2583.5
@@ -48590,7 +48478,11 @@
         ],
         [
          "2026-09-25",
-         3470.5
+         3435.0
+        ],
+        [
+         "2026-09-28",
+         3385.75
         ]
        ],
        "source": "Yahoo Finance",
@@ -48604,17 +48496,13 @@
        "panel": "inputs",
        "group": "Construction inputs",
        "symbol": "SLX",
-       "value": 104.798,
+       "value": 104.08,
        "unit": "USD",
-       "change": -0.032,
-       "change_pct": -0.03,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.72,
+       "change_pct": -0.69,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         72.69
-        ],
         [
          "2025-09-29",
          72.51
@@ -49613,7 +49501,7 @@
         ],
         [
          "2026-09-25",
-         104.798
+         104.8
         ]
        ],
        "source": "Yahoo Finance",
@@ -49632,21 +49520,13 @@
        "panel": "inputs",
        "group": "Energy",
        "symbol": "BZ=F",
-       "value": 97.47,
+       "value": 98.67,
        "unit": "USD",
-       "change": -9.13,
-       "change_pct": -8.56,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -5.65,
+       "change_pct": -5.42,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         69.42
-        ],
-        [
-         "2025-09-26",
-         70.13
-        ],
         [
          "2025-09-29",
          67.97
@@ -50645,7 +50525,11 @@
         ],
         [
          "2026-09-25",
-         97.47
+         104.32
+        ],
+        [
+         "2026-09-28",
+         98.67
         ]
        ],
        "source": "Yahoo Finance",
@@ -50659,21 +50543,13 @@
        "panel": "inputs",
        "group": "Energy",
        "symbol": "CL=F",
-       "value": 92.44,
+       "value": 93.25,
        "unit": "USD",
-       "change": -2.17,
-       "change_pct": -2.29,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.84,
+       "change_pct": 0.91,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         64.98
-        ],
-        [
-         "2025-09-26",
-         65.72
-        ],
         [
          "2025-09-29",
          63.45
@@ -51672,7 +51548,11 @@
         ],
         [
          "2026-09-25",
-         92.44
+         92.41
+        ],
+        [
+         "2026-09-28",
+         93.25
         ]
        ],
        "source": "Yahoo Finance",
@@ -51686,21 +51566,13 @@
        "panel": "inputs",
        "group": "Energy",
        "symbol": "HO=F",
-       "value": 4.58,
+       "value": 4.5488,
        "unit": "USD",
-       "change": -0.1503,
-       "change_pct": -3.18,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.1359,
+       "change_pct": -2.9,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         2.4265
-        ],
-        [
-         "2025-09-26",
-         2.4289
-        ],
         [
          "2025-09-29",
          2.3566
@@ -52699,7 +52571,11 @@
         ],
         [
          "2026-09-25",
-         4.5799
+         4.6847
+        ],
+        [
+         "2026-09-28",
+         4.5488
         ]
        ],
        "source": "Yahoo Finance",
@@ -52713,21 +52589,13 @@
        "panel": "inputs",
        "group": "Energy",
        "symbol": "NG=F",
-       "value": 3.251,
+       "value": 3.139,
        "unit": "USD",
-       "change": -0.046,
-       "change_pct": -1.4,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.057,
+       "change_pct": -1.78,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         2.904
-        ],
-        [
-         "2025-09-26",
-         2.835
-        ],
         [
          "2025-09-29",
          3.267
@@ -53726,7 +53594,11 @@
         ],
         [
          "2026-09-25",
-         3.251
+         3.196
+        ],
+        [
+         "2026-09-28",
+         3.139
         ]
        ],
        "source": "Yahoo Finance",
@@ -53740,21 +53612,13 @@
        "panel": "inputs",
        "group": "Energy",
        "symbol": "TTF=F",
-       "value": 72.08,
+       "value": 71.11,
        "unit": "EUR",
-       "change": -3.026,
-       "change_pct": -4.03,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.961,
+       "change_pct": -1.33,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         32.456
-        ],
-        [
-         "2025-09-26",
-         32.697
-        ],
         [
          "2025-09-29",
          32.06
@@ -54753,7 +54617,11 @@
         ],
         [
          "2026-09-25",
-         72.08
+         72.071
+        ],
+        [
+         "2026-09-28",
+         71.11
         ]
        ],
        "source": "Yahoo Finance",
@@ -54772,17 +54640,13 @@
        "panel": "inputs",
        "group": "Freight & shipping",
        "symbol": "BDRY",
-       "value": 15.32,
+       "value": 14.9,
        "unit": "USD",
-       "change": -0.45,
-       "change_pct": -2.85,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.42,
+       "change_pct": -2.74,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         8.05
-        ],
         [
          "2025-09-29",
          7.77
@@ -55795,21 +55659,13 @@
        "panel": "inputs",
        "group": "Freight & shipping",
        "symbol": "MAERSK-B.CO",
-       "value": 23240.0,
+       "value": 23140.0,
        "unit": "DKK",
-       "change": -480.0,
-       "change_pct": -2.02,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -100.0,
+       "change_pct": -0.43,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         12905.0
-        ],
-        [
-         "2025-09-26",
-         12785.0
-        ],
         [
          "2025-09-29",
          12730.0
@@ -56793,6 +56649,10 @@
         [
          "2026-09-24",
          23720.0
+        ],
+        [
+         "2026-09-25",
+         23240.0
         ]
        ],
        "source": "Yahoo Finance",
@@ -56806,17 +56666,13 @@
        "panel": "inputs",
        "group": "Freight & shipping",
        "symbol": "ZIM",
-       "value": 29.19,
+       "value": 28.39,
        "unit": "USD",
-       "change": -0.19,
-       "change_pct": -0.65,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.8,
+       "change_pct": -2.74,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         13.94
-        ],
         [
          "2025-09-29",
          13.61
@@ -57829,17 +57685,13 @@
        "panel": "inputs",
        "group": "Freight & shipping",
        "symbol": "BOAT",
-       "value": 50.92,
+       "value": 50.5,
        "unit": "USD",
-       "change": -0.38,
-       "change_pct": -0.74,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.42,
+       "change_pct": -0.82,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         32.205
-        ],
         [
          "2025-09-29",
          31.309
@@ -58857,21 +58709,13 @@
        "panel": "inputs",
        "group": "Risk appetite",
        "symbol": "GC=F",
-       "value": 4320.5,
+       "value": 4155.2,
        "unit": "USD",
-       "change": 22.5,
-       "change_pct": 0.52,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -166.0002,
+       "change_pct": -3.84,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         3771.1001
-        ],
-        [
-         "2025-09-26",
-         3809.0
-        ],
         [
          "2025-09-29",
          3855.2
@@ -59870,7 +59714,11 @@
         ],
         [
          "2026-09-25",
-         4320.5
+         4321.2002
+        ],
+        [
+         "2026-09-28",
+         4155.2002
         ]
        ],
        "source": "Yahoo Finance",
@@ -59884,21 +59732,13 @@
        "panel": "inputs",
        "group": "Risk appetite",
        "symbol": "^VIX",
-       "value": 14.87,
+       "value": 16.07,
        "unit": "USD",
-       "change": -0.8,
-       "change_pct": -5.11,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 1.2,
+       "change_pct": 8.07,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         16.74
-        ],
-        [
-         "2025-09-26",
-         15.29
-        ],
         [
          "2025-09-29",
          16.12
@@ -60906,6 +60746,10 @@
         [
          "2026-09-25",
          14.87
+        ],
+        [
+         "2026-09-28",
+         16.07
         ]
        ],
        "source": "Yahoo Finance",
@@ -60919,21 +60763,13 @@
        "panel": "inputs",
        "group": "Risk appetite",
        "symbol": "DX-Y.NYB",
-       "value": 101.035,
+       "value": 101.194,
        "unit": "USD",
-       "change": -0.255,
-       "change_pct": -0.25,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.224,
+       "change_pct": 0.22,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-25",
-         98.55
-        ],
-        [
-         "2025-09-26",
-         98.15
-        ],
         [
          "2025-09-29",
          97.91
@@ -61932,7 +61768,11 @@
         ],
         [
          "2026-09-25",
-         101.035
+         100.97
+        ],
+        [
+         "2026-09-28",
+         101.194
         ]
        ],
        "source": "Yahoo Finance",
@@ -61959,17 +61799,13 @@
        "panel": "thematic",
        "group": "Housing & construction cycle",
        "symbol": "ITB",
-       "value": 89.43,
+       "value": 88.75,
        "unit": "USD",
-       "change": 1.12,
-       "change_pct": 1.27,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.68,
+       "change_pct": -0.76,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         106.93
-        ],
         [
          "2025-09-29",
          107.55
@@ -62982,17 +62818,13 @@
        "panel": "thematic",
        "group": "Housing & construction cycle",
        "symbol": "XHB",
-       "value": 98.32,
+       "value": 97.3,
        "unit": "USD",
-       "change": 1.52,
-       "change_pct": 1.57,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -1.02,
+       "change_pct": -1.04,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         110.4
-        ],
         [
          "2025-09-29",
          110.63
@@ -64005,17 +63837,13 @@
        "panel": "thematic",
        "group": "Housing & construction cycle",
        "symbol": "PAVE",
-       "value": 53.47,
+       "value": 53.08,
        "unit": "USD",
-       "change": 0.4,
-       "change_pct": 0.75,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.39,
+       "change_pct": -0.73,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         47.07
-        ],
         [
          "2025-09-29",
          47.25
@@ -65028,17 +64856,13 @@
        "panel": "thematic",
        "group": "Housing & construction cycle",
        "symbol": "IGF",
-       "value": 62.38,
+       "value": 62.02,
        "unit": "USD",
-       "change": 0.16,
-       "change_pct": 0.26,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.36,
+       "change_pct": -0.58,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         61.02
-        ],
         [
          "2025-09-29",
          60.91
@@ -66056,17 +65880,13 @@
        "panel": "thematic",
        "group": "Materials & energy",
        "symbol": "XLB",
-       "value": 49.8,
+       "value": 49.47,
        "unit": "USD",
-       "change": 0.12,
-       "change_pct": 0.24,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.33,
+       "change_pct": -0.66,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         44.42
-        ],
         [
          "2025-09-29",
          44.59
@@ -67079,17 +66899,13 @@
        "panel": "thematic",
        "group": "Materials & energy",
        "symbol": "XLE",
-       "value": 62.04,
+       "value": 62.1,
        "unit": "USD",
-       "change": -0.56,
-       "change_pct": -0.89,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": 0.06,
+       "change_pct": 0.1,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         45.995
-        ],
         [
          "2025-09-29",
          45.15
@@ -68102,17 +67918,13 @@
        "panel": "thematic",
        "group": "Materials & energy",
        "symbol": "XLRE",
-       "value": 41.56,
+       "value": 41.35,
        "unit": "USD",
-       "change": -0.09,
-       "change_pct": -0.22,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.21,
+       "change_pct": -0.51,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         41.88
-        ],
         [
          "2025-09-29",
          41.96
@@ -69125,17 +68937,13 @@
        "panel": "thematic",
        "group": "Materials & energy",
        "symbol": "COPX",
-       "value": 86.73,
+       "value": 85.26,
        "unit": "USD",
-       "change": 0.48,
-       "change_pct": 0.56,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -1.47,
+       "change_pct": -1.69,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         56.99
-        ],
         [
          "2025-09-29",
          59.23
@@ -70153,17 +69961,13 @@
        "panel": "thematic",
        "group": "Energy transition",
        "symbol": "URA",
-       "value": 40.91,
+       "value": 40.13,
        "unit": "USD",
-       "change": 0.05,
-       "change_pct": 0.12,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.78,
+       "change_pct": -1.91,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         48.41
-        ],
         [
          "2025-09-29",
          48.71
@@ -71176,17 +70980,13 @@
        "panel": "thematic",
        "group": "Energy transition",
        "symbol": "LIT",
-       "value": 69.02,
+       "value": 68.28,
        "unit": "USD",
-       "change": 0.2,
-       "change_pct": 0.29,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.74,
+       "change_pct": -1.07,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         55.55
-        ],
         [
          "2025-09-29",
          56.5
@@ -72199,17 +71999,13 @@
        "panel": "thematic",
        "group": "Energy transition",
        "symbol": "ICLN",
-       "value": 17.23,
+       "value": 16.81,
        "unit": "USD",
-       "change": 0.26,
-       "change_pct": 1.53,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -0.42,
+       "change_pct": -2.44,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         15.21
-        ],
         [
          "2025-09-29",
          15.41
@@ -73222,17 +73018,13 @@
        "panel": "thematic",
        "group": "Energy transition",
        "symbol": "REMX",
-       "value": 66.66,
+       "value": 64.47,
        "unit": "USD",
-       "change": -0.27,
-       "change_pct": -0.4,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "change": -2.19,
+       "change_pct": -3.29,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
-        [
-         "2025-09-26",
-         65.85
-        ],
         [
          "2025-09-29",
          65.54
@@ -74264,7 +74056,7 @@
        "period": "2026-07",
        "freq": "M",
        "asof": "2026-07",
-       "age_days": 59,
+       "age_days": 63,
        "spark": [
         [
          "2025-04",
@@ -74348,7 +74140,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2022-Q3",
@@ -74432,7 +74224,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2022-Q3",
@@ -74516,7 +74308,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2022-Q3",
@@ -74603,7 +74395,7 @@
        "change": -0.026,
        "change_pct": null,
        "asof": "2026-09-23",
-       "age_days": 2,
+       "age_days": 6,
        "spark": [
         [
          "2025-09-15",
@@ -75655,12 +75447,12 @@
        "label": "US 5y breakeven",
        "panel": "inflation",
        "group": "Market-implied expectations",
-       "value": 2.34,
+       "value": 2.33,
        "unit": "%",
-       "change": 0.01,
+       "change": -0.01,
        "change_pct": null,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
         [
          "2026-01-02",
@@ -76401,6 +76193,10 @@
         [
          "2026-09-25",
          2.34
+        ],
+        [
+         "2026-09-28",
+         2.33
         ]
        ],
        "source": "US Treasury (nominal less TIPS)",
@@ -76414,10 +76210,10 @@
        "group": "Market-implied expectations",
        "value": 2.34,
        "unit": "%",
-       "change": 0.01,
+       "change": 0.0,
        "change_pct": null,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
         [
          "2026-01-02",
@@ -77158,6 +76954,10 @@
         [
          "2026-09-25",
          2.34
+        ],
+        [
+         "2026-09-28",
+         2.34
         ]
        ],
        "source": "US Treasury (nominal less TIPS)",
@@ -77169,12 +76969,12 @@
        "label": "US 30y breakeven",
        "panel": "inflation",
        "group": "Market-implied expectations",
-       "value": 2.27,
+       "value": 2.28,
        "unit": "%",
        "change": 0.01,
        "change_pct": null,
-       "asof": "2026-09-25",
-       "age_days": 0,
+       "asof": "2026-09-28",
+       "age_days": 1,
        "spark": [
         [
          "2026-01-02",
@@ -77915,6 +77715,10 @@
         [
          "2026-09-25",
          2.27
+        ],
+        [
+         "2026-09-28",
+         2.28
         ]
        ],
        "source": "US Treasury (nominal less TIPS)",
@@ -77946,7 +77750,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2021-Q3",
@@ -78046,7 +77850,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2021-Q3",
@@ -78146,7 +77950,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2021-Q3",
@@ -78246,7 +78050,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2021-Q3",
@@ -78346,7 +78150,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2021-Q3",
@@ -78446,7 +78250,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2021-Q3",
@@ -78546,7 +78350,7 @@
        "period": "2026-Q2",
        "freq": "Q",
        "asof": "2026-Q2",
-       "age_days": 89,
+       "age_days": 93,
        "spark": [
         [
          "2021-Q3",
@@ -78646,7 +78450,7 @@
        "period": "2026-Q1",
        "freq": "Q",
        "asof": "2026-Q1",
-       "age_days": 181,
+       "age_days": 185,
        "spark": [
         [
          "2021-Q2",
@@ -78743,35 +78547,35 @@
   {
    "country": "Australia",
    "code": "au",
-   "date": "2026-09-24",
+   "date": "2026-09-28",
    "points": [
     {
      "tenor": "O/N",
      "years": 0.003,
      "yield": 4.35,
      "instrument": "cash",
-     "date": "2026-09-24"
+     "date": "2026-09-28"
     },
     {
      "tenor": "1M",
      "years": 0.08333333333333333,
-     "yield": 4.47,
+     "yield": 4.53,
      "instrument": "bill",
-     "date": "2026-09-24"
+     "date": "2026-09-28"
     },
     {
      "tenor": "3M",
      "years": 0.25,
-     "yield": 4.73,
+     "yield": 4.78,
      "instrument": "bill",
-     "date": "2026-09-24"
+     "date": "2026-09-28"
     },
     {
      "tenor": "6M",
      "years": 0.5,
-     "yield": 5.12,
+     "yield": 5.14,
      "instrument": "bill",
-     "date": "2026-09-24"
+     "date": "2026-09-28"
     },
     {
      "tenor": "2Y",
@@ -78808,56 +78612,56 @@
      "years": 0.003,
      "yield": 4.35,
      "instrument": "cash",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "1M",
      "years": 0.08333333333333333,
-     "yield": 4.37,
+     "yield": 4.3,
      "instrument": "bill",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "3M",
      "years": 0.25,
-     "yield": 4.55,
+     "yield": 4.54,
      "instrument": "bill",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "6M",
      "years": 0.5,
-     "yield": 4.84,
+     "yield": 4.87,
      "instrument": "bill",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "2Y",
      "years": 2,
-     "yield": 4.618,
+     "yield": 4.673,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "3Y",
      "years": 3,
-     "yield": 4.598,
+     "yield": 4.653,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "5Y",
      "years": 5,
-     "yield": 4.656,
+     "yield": 4.716,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "10Y",
      "years": 10,
-     "yield": 5.023,
+     "yield": 5.088,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     }
    ],
    "year_ago": [
@@ -78866,63 +78670,63 @@
      "years": 0.003,
      "yield": 3.6,
      "instrument": "cash",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "1M",
      "years": 0.08333333333333333,
-     "yield": 3.54,
+     "yield": 3.51,
      "instrument": "bill",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "3M",
      "years": 0.25,
-     "yield": 3.59,
+     "yield": 3.57,
      "instrument": "bill",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "6M",
      "years": 0.5,
      "yield": 3.75,
      "instrument": "bill",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "2Y",
      "years": 2,
-     "yield": 3.49,
+     "yield": 3.475,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "3Y",
      "years": 3,
-     "yield": 3.54,
+     "yield": 3.529,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "5Y",
      "years": 5,
-     "yield": 3.738,
+     "yield": 3.724,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "10Y",
      "years": 10,
-     "yield": 4.356,
+     "yield": 4.342,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     }
    ],
    "caveat": "Short end (1M-6M) is bank bills, which carry bank credit risk; 2Y-10Y is Commonwealth government bonds. The step between them is a credit spread, not curve shape. The RBA publishes no free interpolated yield beyond 10 years, so this curve stops where the US one continues to 30Y.",
    "source": "RBA tables F1 and F2",
    "metrics": {
     "spread_10_2": 0.298,
-    "spread_10_3m": 0.515,
+    "spread_10_3m": 0.465,
     "shape": "Normal",
     "days_inverted": null
    }
@@ -78930,291 +78734,291 @@
   {
    "country": "United States",
    "code": "us",
-   "date": "2026-09-25",
+   "date": "2026-09-28",
    "points": [
     {
      "tenor": "1M",
      "years": 0.08333333333333333,
      "yield": 4.04,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "2M",
      "years": 0.16666666666666666,
      "yield": 4.2,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "3M",
      "years": 0.25,
-     "yield": 4.24,
+     "yield": 4.28,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "4M",
      "years": 0.3333333333333333,
-     "yield": 4.32,
+     "yield": 4.33,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "6M",
      "years": 0.5,
-     "yield": 4.33,
+     "yield": 4.41,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "1Y",
      "years": 1,
-     "yield": 4.5,
+     "yield": 4.59,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "2Y",
      "years": 2,
-     "yield": 4.81,
+     "yield": 4.92,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "3Y",
      "years": 3,
-     "yield": 4.94,
+     "yield": 5.01,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "5Y",
      "years": 5,
-     "yield": 4.98,
+     "yield": 5.06,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "7Y",
      "years": 7,
-     "yield": 5.06,
+     "yield": 5.15,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "10Y",
      "years": 10,
-     "yield": 5.17,
+     "yield": 5.24,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "20Y",
      "years": 20,
-     "yield": 5.54,
+     "yield": 5.6,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     },
     {
      "tenor": "30Y",
      "years": 30,
-     "yield": 5.49,
+     "yield": 5.56,
      "instrument": "govt",
-     "date": "2026-09-25"
+     "date": "2026-09-28"
     }
    ],
    "month_ago": [
     {
      "tenor": "1M",
      "years": 0.08333333333333333,
-     "yield": 3.8,
+     "yield": 3.84,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "2M",
      "years": 0.16666666666666666,
-     "yield": 3.8,
+     "yield": 3.86,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "3M",
      "years": 0.25,
-     "yield": 3.85,
+     "yield": 3.9,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "4M",
      "years": 0.3333333333333333,
-     "yield": 3.88,
+     "yield": 3.94,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "6M",
      "years": 0.5,
-     "yield": 3.94,
+     "yield": 4.02,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "1Y",
      "years": 1,
-     "yield": 4.02,
+     "yield": 4.15,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "2Y",
      "years": 2,
-     "yield": 4.19,
+     "yield": 4.34,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "3Y",
      "years": 3,
-     "yield": 4.29,
+     "yield": 4.41,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "5Y",
      "years": 5,
-     "yield": 4.37,
+     "yield": 4.48,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "7Y",
      "years": 7,
-     "yield": 4.51,
+     "yield": 4.59,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "10Y",
      "years": 10,
-     "yield": 4.66,
+     "yield": 4.73,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "20Y",
      "years": 20,
-     "yield": 5.17,
+     "yield": 5.21,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     },
     {
      "tenor": "30Y",
      "years": 30,
-     "yield": 5.18,
+     "yield": 5.22,
      "instrument": "govt",
-     "date": "2026-08-26"
+     "date": "2026-08-28"
     }
    ],
    "year_ago": [
     {
      "tenor": "1M",
      "years": 0.08333333333333333,
-     "yield": 4.24,
+     "yield": 4.22,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "2M",
      "years": 0.16666666666666666,
-     "yield": 4.18,
+     "yield": 4.16,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "3M",
      "years": 0.25,
      "yield": 4.04,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "4M",
      "years": 0.3333333333333333,
-     "yield": 4.01,
+     "yield": 3.99,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "6M",
      "years": 0.5,
-     "yield": 3.85,
+     "yield": 3.84,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "1Y",
      "years": 1,
-     "yield": 3.68,
+     "yield": 3.65,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "2Y",
      "years": 2,
-     "yield": 3.64,
+     "yield": 3.63,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "3Y",
      "years": 3,
-     "yield": 3.66,
+     "yield": 3.63,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "5Y",
      "years": 5,
-     "yield": 3.75,
+     "yield": 3.74,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "7Y",
      "years": 7,
-     "yield": 3.94,
+     "yield": 3.92,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "10Y",
      "years": 10,
-     "yield": 4.18,
+     "yield": 4.15,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "20Y",
      "years": 20,
-     "yield": 4.73,
+     "yield": 4.69,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     },
     {
      "tenor": "30Y",
      "years": 30,
-     "yield": 4.75,
+     "yield": 4.71,
      "instrument": "govt",
-     "date": "2025-09-25"
+     "date": "2025-09-29"
     }
    ],
    "caveat": "Treasury par yield curve, all 13 published tenors, 1 month to 30 years.",
    "source": "US Treasury daily par yield curve",
    "metrics": {
-    "spread_10_2": 0.36,
-    "spread_10_3m": 0.93,
+    "spread_10_2": 0.32,
+    "spread_10_3m": 0.96,
     "shape": "Normal",
     "days_inverted": null
    }
