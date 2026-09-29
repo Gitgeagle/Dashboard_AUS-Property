@@ -3,3 +3,5 @@
 # rebuild it from new code. Keep the current branch's copy and let the next fetch
 # produce the authoritative version, instead of hand-resolving a 780KB generated blob.
 data/latest.json merge=ours linguist-generated=true
+data/series/*.json merge=ours linguist-generated=true
+data/company/*.json merge=ours linguist-generated=true

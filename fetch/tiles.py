@@ -130,18 +130,30 @@ RBA = [
 PANELS = [
     {"id": "rates", "title": "Rates & Credit", "cadence": "daily",
      "subtitle": "What money costs - the numbers that price your debt"},
+    {"id": "credit", "title": "Credit & Lending", "cadence": "monthly & quarterly",
+     "subtitle": ("What borrowers actually pay and how fast credit is growing - corporate "
+                  "bond yields, business lending rates, housing finance.")},
     {"id": "curves", "title": "Yield Curve Shape", "cadence": "daily",
      "subtitle": "Where the debt market thinks the cycle is going"},
     {"id": "equities", "title": "Global Equities", "cadence": "end of day",
      "subtitle": "Read backwards through last night - Americas, Europe, Asia, then our open"},
     {"id": "sector", "title": "Property & Input Sectors", "cadence": "end of day",
      "subtitle": "The indices closest to your actual business"},
+    {"id": "universe", "title": "Listed Property & Construction", "cadence": "end of day",
+     "view": "table",
+     "subtitle": ("Developers, REITs, contractors, materials, lenders and global peers. "
+                  "Click a column to sort, a row for the chart and key statistics.")},
     {"id": "capital_property", "title": "Capital City Property", "cadence": "quarterly",
      "subtitle": ("ABS median transfer prices by Greater Capital City. Quarterly - the "
                   "headline is the year-on-year move, not the quarter.")},
+    {"id": "pipeline", "title": "Supply Pipeline", "cadence": "monthly & quarterly",
+     "subtitle": ("Approvals lead commencements by months and completions by years - "
+                  "this is the competing supply your project will land into.")},
+    {"id": "demand", "title": "Demand & Labour", "cadence": "monthly & quarterly",
+     "subtitle": "Population, jobs and slack - the demand side, and the trades market."},
     {"id": "fx", "title": "FX & Crypto", "cadence": "daily",
      "subtitle": "RBA 4pm fixes, plus crypto as a risk-appetite gauge"},
-    {"id": "inputs", "title": "Inputs & Commodities", "cadence": "end of day",
+    {"id": "inputs", "title": "Inputs & Commodities", "cadence": "end of day & monthly",
      "subtitle": "Traded proxies for what you build with, move, and burn"},
     {"id": "thematic", "title": "Thematic & Cycle", "cadence": "end of day",
      "subtitle": ("Where capital is going. Read these for direction over months, not for "
@@ -160,6 +172,120 @@ PANELS = [
 CAPITAL_ORDER = ["1GSYD", "2GMEL", "3GBRI", "5GPER", "4GADE", "8ACTE", "6GHOB", "7GDAR"]
 
 CITY_GROUPS = {"house": "Median house price", "unit": "Median unit / apartment price"}
+
+
+# ---------------------------------------------------------------------------- history
+# The page reads one small file on load and fetches a series' full history only when
+# its tile is opened, so the tile carries a thinned last-year sparkline and the long
+# series goes to data/series/{id}.json.
+HISTORY_YEARS = 10         # cap on what any series file holds
+HISTORY_YEARS_MARKET = 5   # Yahoo and Treasury - each extra year costs requests or bytes
+SPARK_DAYS = 365           # daily series: the sparkline shows the last year
+SPARK_PERIODS = 20         # monthly/quarterly series: the last twenty releases
+SPARK_MAX_POINTS = 90      # a 200px sparkline cannot show more than this anyway
+
+
+# Fields carried on each universe tile so the screener table needs no extra fetches.
+TABLE_FUNDAMENTALS = ("marketCap", "trailingPE", "priceToBook", "dividendYield",
+                      "debtToEquity", "currency")
+
+TILE_KEYS = ("id", "label", "panel", "group", "value", "unit", "change", "change_pct",
+             "asof", "period", "freq", "age_days", "spark", "source", "note", "status",
+             "stale_reason", "symbol")
+
+
+def normalise_extra(t):
+    """Tiles from the newer source modules, coerced to the core schema and status rules."""
+    out = {k: t.get(k) for k in TILE_KEYS if t.get(k) is not None}
+    out.setdefault("status", "ok")
+    out.setdefault("spark", [])
+    if out.get("age_days") is None and out.get("asof"):
+        out["age_days"] = age_days(str(out["asof"]))
+    if out.get("unit") in ("%", "pp"):
+        out["change_pct"] = None
+    return out
+
+
+def tile_stats(obs, unit, traded=False):
+    """Standard-window returns and how unusual today's move was, for daily series.
+
+    The move score is today's change divided by the standard deviation of daily changes
+    over the past year - so a 3-sigma move in diesel ranks above a routine Nasdaq wobble
+    that happens to be larger in percent. Rates are measured in basis points, prices in
+    percent, matching the tiles."""
+    if not is_daily(obs) or len(obs) < 60:
+        return {}
+    rate = unit in ("%", "pp")
+
+    def move(a, b):
+        if a is None or b is None:
+            return None
+        if rate:
+            return round((b - a) * 100, 1)
+        return round((b / a - 1) * 100, 2) if a else None
+
+    last_d, last_v = obs[-1]
+    end = datetime.strptime(last_d[:10], "%Y-%m-%d").date()
+    windows = {"1W": end - timedelta(days=7), "1M": end - timedelta(days=30),
+               "3M": end - timedelta(days=91), "YTD": date(end.year - 1, 12, 31),
+               "1Y": end - timedelta(days=365)}
+    returns = {"1D": move(obs[-2][1], last_v)}
+    for k, d in windows.items():
+        hit = nearest_on_or_before(obs, d.isoformat())
+        # A window reaching back past the start of the history has no honest base.
+        returns[k] = move(hit[1], last_v) if hit and d.isoformat() >= obs[0][0] else None
+
+    diffs = [move(a[1], b[1]) for a, b in zip(obs[-261:-1], obs[-260:])]
+    diffs = [x for x in diffs[:-1] if x is not None]
+    z = None
+    if len(diffs) >= 50 and returns["1D"] is not None:
+        mean = sum(diffs) / len(diffs)
+        sd = (sum((x - mean) ** 2 for x in diffs) / (len(diffs) - 1)) ** 0.5
+        if sd > 0:
+            z = round(returns["1D"] / sd, 2)
+    # Thinly traded futures (HRC=F sat at 1,237 for eight sessions in Sep 2026, then
+    # jumped 7%) print flat runs broken by a step that is a contract roll or a stale
+    # settle, not news. Such a step is flagged and kept off the unusual-moves strip.
+    flat = 0
+    for a, b in zip(reversed(obs[:-1]), reversed(obs[:-2])):
+        if a[1] != b[1]:
+            break
+        flat += 1
+    out = {"returns": returns, "z": z}
+    # Administered rates (the cash rate) sit flat by design, so only traded prices qualify.
+    if traded and flat >= 4 and obs[-1][1] != obs[-2][1]:
+        out["z"] = None
+        out["thin"] = (f"Unchanged for {flat + 1} sessions before the latest print - thin "
+                       "trading or a contract roll; treat the latest move with caution.")
+    return out
+
+
+def trim_history(obs):
+    """Drop observations older than HISTORY_YEARS. ABS period labels ('2016-Q3') sort
+    against ISO dates well enough for a ten-year cut-off."""
+    cutoff = (date.today() - timedelta(days=round(HISTORY_YEARS * 365.25))).isoformat()
+    return [o for o in obs if str(o[0]) >= cutoff]
+
+
+def is_daily(obs):
+    if len(obs) < 10 or len(str(obs[-1][0])) != 10:
+        return False
+    first, last = age_days(obs[-10][0]), age_days(obs[-1][0])
+    return first is not None and last is not None and first - last < 30
+
+
+def spark_from_history(obs):
+    """Last year (or last twenty releases), thinned to SPARK_MAX_POINTS, last point kept."""
+    if is_daily(obs):
+        cutoff = (date.today() - timedelta(days=SPARK_DAYS)).isoformat()
+        window = [o for o in obs if o[0] >= cutoff]
+    else:
+        window = obs[-SPARK_PERIODS:]
+    if len(window) <= SPARK_MAX_POINTS:
+        return window
+    step = len(window) / SPARK_MAX_POINTS
+    thinned = [window[int(i * step)] for i in range(SPARK_MAX_POINTS - 1)]
+    return thinned + [window[-1]]
 
 
 # ------------------------------------------------------------------------- utilities
@@ -255,6 +381,25 @@ def build_au_curve(rba_data):
     }
 
 
+AU_CAVEAT_LONG = ("Short end (1M-6M) is bank bills, which carry bank credit risk; 2Y-10Y is "
+                  "Commonwealth government bonds (RBA F2). Beyond 10Y each point is an "
+                  "individual Treasury bond at its actual maturity (RBA F16), drawn hollow "
+                  "- they are real bonds, not an interpolated curve.")
+
+
+def extend_au_curve(curve, long_end):
+    """Append F16 long bonds (beyond 10Y) to each snapshot of the AU curve."""
+    if not long_end or not long_end.get("points"):
+        return curve
+    for key, src in (("points", "points"), ("month_ago", "month_ago"), ("year_ago", "year_ago")):
+        extra = [{**p, "instrument": "bond"} for p in (long_end.get(src) or [])]
+        if extra and curve.get(key):
+            curve[key] = sorted(curve[key] + extra, key=lambda p: p["years"])
+    curve["caveat"] = AU_CAVEAT_LONG
+    curve["source"] = "RBA tables F1, F2 and F16"
+    return curve
+
+
 def build_us_curve(treasury_days):
     if not treasury_days:
         return None
@@ -317,21 +462,23 @@ def classify_curve(points):
     return out
 
 
-def spread_history_us(treasury_days):
-    """[(date, 10y-2y)] ascending, for the days-since-inversion count."""
+def spread_history_us(treasury_days, short_years=2):
+    """[(date, 10y - short)] ascending. 10y-2y also drives the days-since-inversion count."""
     hist = []
     for d in treasury_days:
-        y2 = yield_at(d["points"], 2)
+        ys = yield_at(d["points"], short_years)
         y10 = yield_at(d["points"], 10)
-        if y2 is not None and y10 is not None:
-            hist.append((d["date"], round(y10 - y2, 3)))
+        if ys is not None and y10 is not None:
+            hist.append((d["date"], round(y10 - ys, 3)))
     return hist
 
 
-def spread_history_au(rba_data):
-    s2 = dict((rba_data.get("f2") or {}).get("FCMYGBAG2D", {}).get("obs") or [])
+def spread_history_au(rba_data, short=("f2", "FCMYGBAG2D")):
+    """[(date, 10y - short)] on days both series printed. The 3m leg is a bank bill (F1),
+    so 10y-3m here carries bank credit risk as well as curve shape."""
+    ss = dict((rba_data.get(short[0]) or {}).get(short[1], {}).get("obs") or [])
     s10 = dict((rba_data.get("f2") or {}).get("FCMYGBAG10D", {}).get("obs") or [])
-    return [(d, round(s10[d] - s2[d], 3)) for d in sorted(set(s2) & set(s10))]
+    return [(d, round(s10[d] - ss[d], 3)) for d in sorted(set(ss) & set(s10))]
 
 
 def days_since_inversion(history):

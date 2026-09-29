@@ -5,6 +5,7 @@ rather than the run. Free endpoints break without notice, and a dashboard that s
 nine good numbers and one grey "stale" tile is far more useful than one that shows an
 error page. The exit code stays 0 unless literally nothing was fetched.
 """
+import importlib
 import json
 import os
 import sys
@@ -19,15 +20,36 @@ from sources import crypto, fred, rba, ustreasury, yahoo  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 SERIES_DIR = os.path.join(DATA, "series")
+COMPANY_DIR = os.path.join(DATA, "company")
+
+# Sources added after the core set. Each is imported on its own so a module that fails to
+# import (a syntax slip, a missing name) costs its own tiles, not the run.
+OPTIONAL = ("rba_extra", "abs_extra", "worldbank", "aemo", "releases", "news", "universe")
+
+
+def optional_sources():
+    mods, errors = {}, {}
+    for name in OPTIONAL:
+        try:
+            mods[name] = importlib.import_module(f"sources.{name}")
+        except Exception as e:  # noqa: BLE001
+            errors[f"import/{name}"] = f"{type(e).__name__}: {e}"
+    return mods, errors
 
 
 def log(msg):
     print(msg, flush=True)
 
 
+def _as_list(res):
+    """fetch_profiles returns ({id: profile}, errors); run() wants (items, errors)."""
+    profiles, errs = res
+    return list(profiles.items()), errs
+
+
 def build():
     now = datetime.now(timezone.utc)
-    errors = {}
+    extra, errors = optional_sources()
     tile_list = []
 
     # ---------------------------------------------------------------- RBA
@@ -57,7 +79,7 @@ def build():
             "value": value, "unit": unit,
             "change": change, "change_pct": change_pct,
             "asof": asof, "age_days": tiles.age_days(asof),
-            "spark": [[d, v] for d, v in obs[-260:]],
+            "spark": [[d, v] for d, v in obs],
             "source": f"RBA {table.upper()}",
             "note": tiles.NOTES.get(tid),
             "status": "ok",
@@ -112,7 +134,7 @@ def build():
     # ------------------------------------------------------------ Treasury
     log("Fetching US Treasury yield curve...")
     try:
-        treasury_days = ustreasury.fetch()
+        treasury_days = ustreasury.fetch(years_back=tiles.HISTORY_YEARS_MARKET)
         log(f"  {len(treasury_days)} trading days")
     except Exception as e:  # noqa: BLE001
         treasury_days = []
@@ -130,7 +152,7 @@ def build():
                 continue
             pv = tiles.yield_at(prev["points"], years) if prev else None
             hist = []
-            for d in treasury_days[-260:]:
+            for d in treasury_days:
                 yv = tiles.yield_at(d["points"], years)
                 if yv is not None:
                     hist.append([d["date"], yv])
@@ -147,6 +169,13 @@ def build():
     log("Building yield curves...")
     curves = []
     au_curve = tiles.build_au_curve(rba_data)
+    if au_curve and "rba_extra" in extra:
+        # F16 carries individual bonds out to the 2050s, so the long end is real bonds at
+        # their actual maturities rather than an interpolated tenor the RBA doesn't publish.
+        try:
+            tiles.extend_au_curve(au_curve, extra["rba_extra"].fetch_long_end())
+        except Exception as e:  # noqa: BLE001
+            errors["curve/au_long_end"] = f"{type(e).__name__}: {e}"
     if au_curve:
         au_curve["metrics"] = tiles.classify_curve(au_curve["points"])
         au_curve["metrics"]["days_inverted"] = tiles.days_since_inversion(
@@ -168,8 +197,10 @@ def build():
     # so these earn their place only by carrying history - whether the curve is
     # steepening or flattening is the actual signal, not today's level.
     spread_hist = {
-        "au": tiles.spread_history_au(rba_data),
-        "us": tiles.spread_history_us(treasury_days),
+        ("au", "spread_10_2"): tiles.spread_history_au(rba_data),
+        ("au", "spread_10_3m"): tiles.spread_history_au(rba_data, ("f1", "FIRMMBAB90D")),
+        ("us", "spread_10_2"): tiles.spread_history_us(treasury_days),
+        ("us", "spread_10_3m"): tiles.spread_history_us(treasury_days, 0.25),
     }
     for c in curves:
         m = c["metrics"]
@@ -178,16 +209,24 @@ def build():
                                  ("spread_10_3m", "10y - 3m spread", "pp")):
             if m.get(key) is None:
                 continue
-            hist = spread_hist.get(cc, []) if key == "spread_10_2" else []
-            prev = hist[-2][1] if len(hist) > 1 else None
+            hist = spread_hist.get((cc, key), [])
+            # Read the spread off the last day BOTH legs printed. The curve snapshot takes
+            # each tenor's latest print, and in Australia bills run daily while bonds lag
+            # by days - so the snapshot can subtract a 23 Sep bond from a 28 Sep bill and
+            # stamp the result 28 Sep.
+            if hist:
+                asof, value = hist[-1]
+                prev = hist[-2][1] if len(hist) > 1 else None
+            else:
+                asof, value, prev = c["date"], m[key], None
             tile_list.append({
                 "id": f"{cc}_{key}", "label": f"{c['country']}: {label}",
                 "panel": "curves", "group": c["country"],
-                "value": m[key], "unit": unit,
-                "change": round(m[key] - prev, 3) if prev is not None else None,
+                "value": value, "unit": unit,
+                "change": round(value - prev, 3) if prev is not None else None,
                 "change_pct": None,
-                "asof": c["date"], "age_days": tiles.age_days(c["date"]),
-                "spark": [[d, v] for d, v in hist[-260:]],
+                "asof": asof, "age_days": tiles.age_days(asof),
+                "spark": [[d, v] for d, v in hist],
                 "source": c["source"], "status": "ok",
                 "note": ("Negative = inverted. Rising = steepening."
                          if key == "spread_10_2"
@@ -295,14 +334,14 @@ def build():
                 "group": "Market-implied expectations", "value": cur[1], "unit": "%",
                 "change": round(cur[1] - prev[1], 3) if prev else None, "change_pct": None,
                 "asof": cur[0], "age_days": tiles.age_days(cur[0]),
-                "spark": hist[-260:], "source": "RBA F2 (nominal less indexed)", "status": "ok",
+                "spark": hist, "source": "RBA F2 (nominal less indexed)", "status": "ok",
                 "note": "Nominal 10y less the 10y indexed bond - the market's inflation expectation.",
             })
     else:
         errors["breakeven/au"] = "RBA nominal or indexed 10y unavailable"
 
     try:
-        real_days = ustreasury.fetch_real()
+        real_days = ustreasury.fetch_real(years_back=tiles.HISTORY_YEARS_MARKET)
     except Exception as e:  # noqa: BLE001
         real_days = []
         errors["ustreasury/real"] = f"{type(e).__name__}: {e}"
@@ -328,7 +367,7 @@ def build():
                 "group": "Market-implied expectations", "value": cur[1], "unit": "%",
                 "change": round(cur[1] - prev[1], 3) if prev else None, "change_pct": None,
                 "asof": cur[0], "age_days": tiles.age_days(cur[0]),
-                "spark": hist[-260:], "source": "US Treasury (nominal less TIPS)", "status": "ok",
+                "spark": hist, "source": "US Treasury (nominal less TIPS)", "status": "ok",
                 "note": "Nominal less TIPS yield - what the bond market prices for inflation.",
             })
 
@@ -353,9 +392,72 @@ def build():
             "group": "United States", "value": value, "unit": s["unit"],
             "change": change, "change_pct": change_pct,
             "asof": asof, "age_days": tiles.age_days(asof),
-            "spark": [[d, v] for d, v in obs[-260:]],
+            "spark": [[d, v] for d, v in obs],
             "source": "FRED", "status": "ok",
         })
+
+    # ----------------------------------------------------- additional sources
+    def run(name, label, fn):
+        if name not in extra:
+            return []
+        log(f"Fetching {label}...")
+        try:
+            got, errs = fn(extra[name])
+        except Exception as e:  # noqa: BLE001
+            errors[name] = f"{type(e).__name__}: {e}"
+            return []
+        for k, v in (errs or {}).items():
+            errors[f"{name}/{k}"] = v
+        log(f"  {len(got)} ok, {len(errs or {})} failed")
+        return got
+
+    for t in (run("rba_extra", "RBA credit tables", lambda m: m.fetch_all())
+              + run("abs_extra", "ABS pipeline and demand series", lambda m: m.fetch_all())
+              + run("worldbank", "World Bank commodity prices", lambda m: m.fetch_all())
+              + run("aemo", "AEMO wholesale electricity", lambda m: m.fetch_all(SERIES_DIR))):
+        tile_list.append(tiles.normalise_extra(t))
+
+    calendar = run("releases", "release calendar", lambda m: m.fetch_calendar())
+    news = run("news", "official media releases", lambda m: m.fetch_news())
+
+    # The curated equity universe feeds search, the company view and the screener table.
+    # Profiles (valuation, gearing) change slowly, so the module caches them for a week.
+    stocks = run("universe", "equity universe", lambda m: m.fetch_prices())
+    profiles = {}
+    if stocks:
+        os.makedirs(COMPANY_DIR, exist_ok=True)
+        profiles = run("universe", "company profiles",
+                       lambda m: _as_list(m.fetch_profiles(m.UNIVERSE, COMPANY_DIR)))
+        profiles = dict(profiles)
+    for t in stocks:
+        t = tiles.normalise_extra(t)
+        prof = profiles.get(t["id"])
+        if prof:
+            t["profile"] = True
+            t["fundamentals"] = {k: prof[k] for k in tiles.TABLE_FUNDAMENTALS if k in prof}
+            t["sector"] = prof.get("industry") or prof.get("sector")
+        tile_list.append(t)
+
+    # ------------------------------------------------------------- history
+    # Each tile arrives carrying its whole series in "spark". The full series goes to its
+    # own file for the drill-down chart; the tile keeps only a thinned sparkline, so the
+    # page's first load does not grow with every year of history added.
+    os.makedirs(SERIES_DIR, exist_ok=True)
+    for t in tile_list:
+        hist = tiles.trim_history(t.get("spark") or [])
+        if len(hist) < 2:
+            continue
+        rec = {k: t.get(k) for k in ("id", "label", "unit", "source", "symbol", "freq")}
+        rec["obs"] = [list(o) for o in hist]
+        with open(os.path.join(SERIES_DIR, f"{t['id']}.json"), "w", encoding="utf-8") as f:
+            json.dump(rec, f, separators=(",", ":"), ensure_ascii=False)
+        t["history"] = {"n": len(hist), "start": hist[0][0]}
+        t.update(tiles.tile_stats(hist, t.get("unit"), traded=t.get("source") == "Yahoo Finance"))
+        if t.get("thin"):
+            t["note"] = t["thin"] + (" " + t["note"] if t.get("note") else "")
+        # The screener table draws no sparklines, so universe rows carry none on load;
+        # the drill-down reads the full series file anyway.
+        t["spark"] = [] if t["panel"] == "universe" else [list(o) for o in tiles.spark_from_history(hist)]
 
     # ------------------------------------------------------------- assemble
     panels = []
@@ -375,6 +477,8 @@ def build():
         "generated_at": now.isoformat().replace("+00:00", "Z"),
         "panels": panels,
         "curves": curves,
+        "calendar": calendar,
+        "news": news,
         "errors": errors,
         "counts": {"total": len(tile_list), "ok": ok,
                    "degraded": len(tile_list) - ok, "errors": len(errors)},
@@ -385,14 +489,18 @@ def build():
             "Yahoo Finance chart endpoint",
             "Coinbase / Kraken public APIs",
             "FRED" if fred_data else None,
+            "RBA F3, F7, F16, D1" if "rba_extra" in extra else None,
+            "World Bank Pink Sheet (CC BY 4.0)" if "worldbank" in extra else None,
+            "AEMO (NEM price and demand)" if "aemo" in extra else None,
+            "ABS release calendar, RBA and Federal Reserve schedules" if calendar else None,
         ],
     }
     payload["sources"] = [s for s in payload["sources"] if s]
 
-    os.makedirs(SERIES_DIR, exist_ok=True)
     out = os.path.join(DATA, "latest.json")
     with open(out, "w", encoding="utf-8") as f:
-        json.dump(payload, f, indent=1, ensure_ascii=False)
+        # Compact: this is the page's first download, and nobody reads it by eye.
+        json.dump(payload, f, separators=(",", ":"), ensure_ascii=False)
 
     log(f"\nWrote {out}")
     log(f"  {ok}/{len(tile_list)} tiles ok, {len(errors)} issues")

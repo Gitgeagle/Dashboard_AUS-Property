@@ -6,7 +6,7 @@
 <title>Morning Markets</title>
 <meta name="description" content="Daily markets dashboard for property development and construction.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2026-09-29c">
 </head>
 <body>
 <header class="topbar">
@@ -14,12 +14,16 @@
     <h1>Morning Markets</h1>
     <span class="tag" id="localtime"></span>
   </div>
+  <button id="search" class="search-btn" type="button" title="Search every series (/ or Ctrl+K)">
+    <span>Search tiles, codes, panels…</span><kbd>/</kbd>
+  </button>
   <div class="meta">
     <span id="generated">loading…</span>
     <span class="dot">·</span>
     <span id="health"></span>
     <button id="refresh" title="Re-read the published data file">refresh</button>
   </div>
+  <nav id="views" class="views" aria-label="Layouts"></nav>
 </header>
 
 <main id="app">
@@ -35,6 +39,33 @@
   </p>
 </footer>
 
-<script src="app.js"></script>
+<div id="drill" class="overlay" hidden>
+  <div class="drill" role="dialog" aria-modal="true" aria-label="Series detail">
+    <div class="drill-bar">
+      <button id="drill-prev" type="button" title="Previous tile in this panel (←)">‹ prev</button>
+      <button id="drill-next" type="button" title="Next tile in this panel (→)">next ›</button>
+      <span class="drill-keys">← → step · Esc close</span>
+      <button id="drill-close" type="button" title="Close (Esc)">close ✕</button>
+    </div>
+    <div id="drill-body"></div>
+  </div>
+</div>
+
+<div id="palette" class="overlay" hidden>
+  <div class="palette" role="dialog" aria-modal="true" aria-label="Search">
+    <input id="pal-input" type="text" autocomplete="off" spellcheck="false"
+      placeholder="Type a name or code — e.g. hrc, au 10, axjo, sydney house"
+      aria-controls="pal-list">
+    <div class="pal-help">
+      <span id="pal-hint"></span>
+      <span>add <b>GP</b> chart · <b>HP</b> history · <b>DES</b> description · <b>COMP</b> compare &nbsp;·&nbsp; ↑↓ Enter</span>
+    </div>
+    <ul id="pal-list" role="listbox"></ul>
+  </div>
+</div>
+
+<script src="app.js?v=2026-09-29c"></script>
+<script src="chart.js?v=2026-09-29c"></script>
+<script src="explore.js?v=2026-09-29c"></script>
 </body>
 </html>

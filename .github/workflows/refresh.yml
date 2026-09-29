@@ -2,9 +2,13 @@ name: Refresh market data
 
 on:
   schedule:
-    # 20:00 UTC on weekdays = 06:00 AEST / 07:00 AEDT. GitHub cron has no timezone
-    # support, so this drifts an hour across daylight saving rather than tracking it.
-    - cron: "0 20 * * 1-5"
+    # 17:00 UTC on weekdays = 03:00 AEST / 04:00 AEDT. GitHub starts scheduled runs late
+    # under load - in Sep 2026 every run began 2.5-3h after its 20:00 slot and one was
+    # skipped outright - so the slot sits well before the 6am read. US and European
+    # closes are already in by then. GitHub cron has no timezone support, so this drifts
+    # an hour across daylight saving rather than tracking it. The page shows a banner
+    # when a scheduled run fails to land (SCHEDULE_UTC_HOUR in app.js must match).
+    - cron: "0 17 * * 1-5"
   workflow_dispatch:
   push:
     branches: [main]

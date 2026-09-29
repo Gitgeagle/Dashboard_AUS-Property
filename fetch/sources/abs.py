@@ -58,7 +58,7 @@ SERIES = {
     # series under the same key, so we read it from there.
     "cpi_monthly": {
         "flow": "CPI", "key": "3.10001.10.50.M",
-        "label": "Headline CPI (monthly)", "unit": "%", "panel": "inflation",
+        "label": "Headline CPI (monthly)", "unit": "%", "panel": "inflation", "n": 120,
         "note": "All groups CPI, change from corresponding month of previous year",
     },
     # The ABS publishes no rent series broken down by capital city - both "Rents" codes
@@ -151,7 +151,7 @@ def _extract(js):
 
 
 def fetch_series(spec, n=12):
-    js = get_json(BASE.format(flow=spec["flow"], key=spec["key"], n=n))
+    js = get_json(BASE.format(flow=spec["flow"], key=spec["key"], n=spec.get("n", n)))
     return _extract(js)
 
 
@@ -168,12 +168,12 @@ CAPITALS = {
 }
 
 
-def fetch_city_property(n=13):
+def fetch_city_property(n=41):
     """Median dwelling prices for the eight capitals.
 
     Returns {(region_id, kind): {"city":..., "kind":..., "obs":[(period, value)]}}.
-    One request covers both measures and every region; n=13 gives four years of
-    quarters so year-on-year is available alongside quarter-on-quarter.
+    One request covers both measures and every region; n=41 gives ten years of
+    quarters for the drill-down chart, plus the one extra that year-on-year needs.
     """
     key = "+".join(CITY_MEASURES) + "..Q"
     js = get_json(BASE.format(flow=CITY_FLOW, key=key, n=n))
@@ -249,7 +249,9 @@ period_age_days = _period_age_days  # public alias for callers outside this modu
 STALE_AFTER_DAYS = {"Q": 300, "M": 120}
 
 
-def fetch_all(n=20):
+# 44 quarters is eleven years: ten for the drill-down chart plus the four that the
+# first year-on-year point needs. Monthly series set their own "n" in SERIES.
+def fetch_all(n=44):
     out, errors = {}, {}
     for sid, spec in SERIES.items():
         try:

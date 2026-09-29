@@ -19,7 +19,7 @@ PAUSE = 0.35  # gentle on an endpoint that owes us nothing
 STALE_AFTER_DAYS = 10
 
 
-def fetch_symbol(symbol, rng="1y"):
+def fetch_symbol(symbol, rng="5y"):
     """Return a normalised quote dict, or raise."""
     import urllib.parse
     js = get_json(URL.format(sym=urllib.parse.quote(symbol, safe=""), rng=rng))
@@ -51,8 +51,8 @@ def fetch_symbol(symbol, rng="1y"):
         spark = []
 
     # Previous close = the most recent daily close BEFORE the current session.
-    # meta.chartPreviousClose is the close at the start of the requested range (a year
-    # ago for range=1y), so using it would report the annual move as the daily move.
+    # meta.chartPreviousClose is the close at the start of the requested range (five
+    # years ago for range=5y), so using it would report the annual move as the daily move.
     prev = None
     for day, close in reversed(spark):
         if day < asof:
@@ -60,6 +60,14 @@ def fetch_symbol(symbol, rng="1y"):
             break
     if prev is None:
         prev = meta.get("previousClose") or meta.get("chartPreviousClose")
+
+    # The last daily bar is not always the quoted price - for ^AXPJ it lagged by ~0.6%.
+    # Pin the series' final point to the headline so the chart, sparkline and tile
+    # can never disagree about where the series is now.
+    if spark and spark[-1][0] == asof:
+        spark[-1][1] = round(price, 4)
+    elif not spark or spark[-1][0] < asof:
+        spark.append([asof, round(price, 4)])
 
     change = round(price - prev, 4) if prev else None
     change_pct = round((price / prev - 1) * 100, 2) if prev else None
@@ -79,12 +87,12 @@ def fetch_symbol(symbol, rng="1y"):
         "currency": meta.get("currency"),
         "exchange": meta.get("fullExchangeName"),
         "asof": asof,
-        "spark": spark[-260:],
+        "spark": spark,
         "source": "Yahoo Finance",
     }
 
 
-def fetch_many(symbols, rng="1y"):
+def fetch_many(symbols, rng="5y"):
     """Fetch a list of symbols. Returns (results, errors), both keyed by symbol."""
     out, errors = {}, {}
     for i, sym in enumerate(symbols):
